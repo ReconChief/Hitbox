@@ -548,11 +548,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Body: {fileID: 1269244696}
   player1CrouchBody: {fileID: 8352464}
-  player1MovementBody: {fileID: 1396096213}
   player2Body: {fileID: 1119412158}
   player2CrouchBody: {fileID: 334473779}
-  player2MovementBody: {fileID: 181655891}
   roundText: {fileID: 1499206828}
+  p1Boundaries: {fileID: 1396096213}
+  p2Boundaries: {fileID: 181655891}
   timer: 60
   roundTimer: 3
   timerText: {fileID: 1417350892}
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 144791081}
   - component: {fileID: 144791082}
   m_Layer: 0
-  m_Name: RightMovement
+  m_Name: RightBoundaries
   m_TagString: Player2Movement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 181655892}
   - component: {fileID: 181655893}
   m_Layer: 0
-  m_Name: Movement
+  m_Name: Boundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2927,7 +2927,7 @@ GameObject:
   - component: {fileID: 710178180}
   - component: {fileID: 710178181}
   m_Layer: 0
-  m_Name: LeftMovement
+  m_Name: LeftBoundaries
   m_TagString: Player1Movement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,7 +3371,7 @@ GameObject:
   - component: {fileID: 799905812}
   - component: {fileID: 799905811}
   m_Layer: 0
-  m_Name: LeftMovement
+  m_Name: LeftBoundaries
   m_TagString: Player2Movement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5491,7 +5491,7 @@ GameObject:
   - component: {fileID: 1396096214}
   - component: {fileID: 1396096215}
   m_Layer: 0
-  m_Name: Movement
+  m_Name: Boundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5736,7 +5736,7 @@ GameObject:
   - component: {fileID: 1475218597}
   - component: {fileID: 1475218598}
   m_Layer: 0
-  m_Name: RightMovement
+  m_Name: RightBoundaries
   m_TagString: Player1Movement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

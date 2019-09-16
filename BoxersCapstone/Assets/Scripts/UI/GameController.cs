@@ -12,15 +12,16 @@ public class GameController : MonoBehaviour
     private Player1Controls player1;
     public GameObject player1Body;
     public GameObject player1CrouchBody;
-    public GameObject player1MovementBody;
 
     private GameObject player2Object;
     private Player2Controls player2;
     public GameObject player2Body;
     public GameObject player2CrouchBody;
-    public GameObject player2MovementBody;
 
     public GameObject roundText;
+
+    public GameObject p1Boundaries;
+    public GameObject p2Boundaries;
 
     [Header("Timer Variables")]
     //Timers
@@ -37,6 +38,9 @@ public class GameController : MonoBehaviour
     private Vector3 p1ResetLowPositions;
     private Vector3 p2ResetStandPositions;
     private Vector3 p2ResetLowPositions;
+
+    private Vector3 p1ResetBoundaries;
+    private Vector3 p2ResetBoundaries;
 
     [Header("Reset GameObject Variables")]
     public GameObject player1StandLightHitBox;
@@ -95,6 +99,9 @@ public class GameController : MonoBehaviour
 
         p2ResetStandPositions = player2StandLightHitBox.transform.position;
         p2ResetLowPositions = player2LowLightHitBox.transform.position;
+
+        p1ResetBoundaries = p1Boundaries.transform.position;
+        p2ResetBoundaries = p2Boundaries.transform.position;
     }
 
     void Update()
@@ -124,7 +131,7 @@ public class GameController : MonoBehaviour
             timerText.color = new Color(1, 1, 1, 1);
             timerText.text = timer.ToString("F0");
 
-            ResetHitBoxes();
+            ResetPositions();
             //player1MovementBody.transform.position = new Vector3(-3f, 0, 0);
         }
 
@@ -335,7 +342,7 @@ public class GameController : MonoBehaviour
         player2Wins = 0;
     }
 
-    void ResetHitBoxes()
+    void ResetPositions()
     {
         //Player 1 Reset Hitboxes
         player1StandLightHitBox.transform.position = p1ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
@@ -350,5 +357,9 @@ public class GameController : MonoBehaviour
 
         player2LowLightHitBox.transform.position = p2ResetLowPositions + new Vector3 (-0.04f, -0.053f, 0);
         player2LowFierceHitBox.transform.position = p2ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
+
+        //Reset Boundaries
+        p1Boundaries.transform.position = p1ResetBoundaries;
+        p2Boundaries.transform.position = p2ResetBoundaries;
     }
 }
