@@ -1,0 +1,354 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class GameController : MonoBehaviour
+{
+    [Header("Game Object Variables")]
+    //Using Variables from other Objects
+    private GameObject player1Object;
+    private Player1Controls player1;
+    public GameObject player1Body;
+    public GameObject player1CrouchBody;
+    public GameObject player1MovementBody;
+
+    private GameObject player2Object;
+    private Player2Controls player2;
+    public GameObject player2Body;
+    public GameObject player2CrouchBody;
+    public GameObject player2MovementBody;
+
+    public GameObject roundText;
+
+    [Header("Timer Variables")]
+    //Timers
+    public float timer;
+    public float roundTimer;
+
+    //UI Text
+    public Text timerText;
+    public Text numberOfRoundText;
+
+    //Resetting Hitboxes
+    [Header("Reset Variables")]
+    private Vector3 p1ResetStandPositions;
+    private Vector3 p1ResetLowPositions;
+    private Vector3 p2ResetStandPositions;
+    private Vector3 p2ResetLowPositions;
+
+    [Header("Reset GameObject Variables")]
+    public GameObject player1StandLightHitBox;
+    public GameObject player1StandFierceHitBox;
+
+    public GameObject player1LowLightHitBox;
+    public GameObject player1LowFierceHitBox;
+
+    public GameObject player2StandLightHitBox;
+    public GameObject player2StandFierceHitBox;
+
+    public GameObject player2LowLightHitBox;
+    public GameObject player2LowFierceHitBox;
+
+    [Header("Round Variables")]
+    #region Rounds Variables
+    public bool roundFinished = true;
+    public int roundNumber = 1;
+
+    //# of Rounds Won per Player
+    public int player1Wins = 0;
+    public int player2Wins = 0;
+
+    #region Player 1 Rounds Display
+    public GameObject player1Round1;
+    public GameObject player1Round2;
+    public GameObject player1Round3;
+
+    public GameObject player1Round1Won;
+    public GameObject player1Round2Won;
+    public GameObject player1Round3Won;
+    #endregion
+
+    #region Player 2 Rounds Display
+    public GameObject player2Round1;
+    public GameObject player2Round2;
+    public GameObject player2Round3;
+
+    public GameObject player2Round1Won;
+    public GameObject player2Round2Won;
+    public GameObject player2Round3Won;
+    #endregion
+
+    #endregion
+
+    void Start()
+    {
+        player1Object = GameObject.FindGameObjectWithTag("Player1");
+        player1 = player1Object.GetComponent<Player1Controls>();
+
+        p1ResetStandPositions = player1StandLightHitBox.transform.position;
+        p1ResetLowPositions = player1LowLightHitBox.transform.position;
+
+        player2Object = GameObject.FindGameObjectWithTag("Player2");
+        player2 = player2Object.GetComponent<Player2Controls>();
+
+        p2ResetStandPositions = player2StandLightHitBox.transform.position;
+        p2ResetLowPositions = player2LowLightHitBox.transform.position;
+    }
+
+    void Update()
+    {
+        if (roundFinished && roundTimer >= 0) //Reset Round (player's position and updated UI Look)
+        {
+            //Timer to Display Round Number
+            roundTimer -= Time.deltaTime;
+            roundText.SetActive(true);
+
+            //Display Text
+            if (roundTimer >= 2)
+            {
+                numberOfRoundText.text = "ROUND " + roundNumber.ToString();
+            }
+
+            else if (roundTimer >= 0.5)
+            {
+                numberOfRoundText.text = "READY";
+            }
+
+            else if (roundTimer >= 0)
+            {
+                numberOfRoundText.text = "FIGHT";
+            }
+
+            timerText.color = new Color(1, 1, 1, 1);
+            timerText.text = timer.ToString("F0");
+
+            ResetHitBoxes();
+            //player1MovementBody.transform.position = new Vector3(-3f, 0, 0);
+        }
+
+        else
+        {
+            timer -= Time.deltaTime;
+            timerText.text = timer.ToString("F0");
+            roundFinished = false;
+            roundText.SetActive(false);
+        }
+
+        #region Timer Color Change
+        if (timer >= 25 && timer <= 30)
+        {
+            timerText.color = new Color(1, .8f, .8f, 1);
+        }
+
+        else if (timer >= 20 && timer <= 25)
+        {
+            timerText.color = new Color(1, .6f, .6f, 1);
+        }
+
+        else if (timer >= 15 && timer <= 20)
+        {
+            timerText.color = new Color(1, .4f, .4f, 1);
+        }
+
+        else if (timer >= 10 && timer <= 15)
+        {
+            timerText.color = new Color(1, .3f, .3f, 1);
+        }
+
+        else if (timer >= 5 && timer <= 10)
+        {
+            timerText.color = new Color(1, .2f, .2f, 1);
+        }
+
+        else if (timer >= 0 && timer <= 5)
+        {
+            timerText.color = new Color(1, 0, 0, 1);
+        }
+        #endregion
+
+        //Player 1 Rounds Display
+        switch (player1Wins)
+        {
+            case 1:
+                player1Round1.SetActive(false);
+                player1Round2.SetActive(true);
+                player1Round3.SetActive(true);
+
+                player1Round1Won.SetActive(true);
+                player1Round2Won.SetActive(false);
+                player1Round3Won.SetActive(false);
+                break;
+
+            case 2:
+                player1Round1.SetActive(false);
+                player1Round2.SetActive(false);
+                player1Round3.SetActive(true);
+
+                player1Round1Won.SetActive(true);
+                player1Round2Won.SetActive(true);
+                player1Round3Won.SetActive(false);
+                break;
+
+            case 3:
+                player1Round1.SetActive(false);
+                player1Round2.SetActive(false);
+                player1Round3.SetActive(false);
+
+                player1Round1Won.SetActive(true);
+                player1Round2Won.SetActive(true);
+                player1Round3Won.SetActive(true);
+                break;
+
+            default:
+                player1Round1.SetActive(true);
+                player1Round2.SetActive(true);
+                player1Round3.SetActive(true);
+
+                player1Round1Won.SetActive(false);
+                player1Round2Won.SetActive(false);
+                player1Round3Won.SetActive(false);
+                break;
+        }
+
+        //Player 2 Rounds Display
+        switch (player2Wins)
+        {
+            case 1:
+                player2Round1.SetActive(false);
+                player2Round2.SetActive(true);
+                player2Round3.SetActive(true);
+
+                player2Round1Won.SetActive(true);
+                player2Round2Won.SetActive(false);
+                player2Round3Won.SetActive(false);
+                break;
+
+            case 2:
+                player2Round1.SetActive(false);
+                player2Round2.SetActive(false);
+                player2Round3.SetActive(true);
+
+                player2Round1Won.SetActive(true);
+                player2Round2Won.SetActive(true);
+                player2Round3Won.SetActive(false);
+                break;
+
+            case 3:
+                player2Round1.SetActive(false);
+                player2Round2.SetActive(false);
+                player2Round3.SetActive(false);
+
+                player2Round1Won.SetActive(true);
+                player2Round2Won.SetActive(true);
+                player2Round3Won.SetActive(true);
+                break;
+
+            default:
+                player2Round1.SetActive(true);
+                player2Round2.SetActive(true);
+                player2Round3.SetActive(true);
+
+                player2Round1Won.SetActive(false);
+                player2Round2Won.SetActive(false);
+                player2Round3Won.SetActive(false);
+                break;
+        }
+
+        if (timer <= 0)
+        {
+            TimeoutRound();
+        }
+
+        if (player1Wins == 3 || player2Wins == 3)
+        {
+            Reset();
+        }
+
+        player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
+        player2CrouchBody.transform.position = player2Body.transform.position + new Vector3(0, -1, 0);
+    }
+
+    public void Player1WinsRound()
+    {
+        roundFinished = true; //Player freezes
+        roundNumber++;
+        player1Wins++;
+
+        player1Body.transform.position = new Vector2(-3, -1.82f);
+        player2Body.transform.position = new Vector2(3, -1.82f);
+
+        roundTimer = 3;
+        timer = 60;
+    }
+
+    public void Player2WinsRound()
+    {
+        roundFinished = true; // Player freezes
+        roundNumber++;
+        player2Wins++;
+
+        player1Body.transform.position = new Vector2(-3, -1.82f);
+        player2Body.transform.position = new Vector2(3, -1.82f);
+
+        roundTimer = 3;
+        timer = 60;
+    }
+
+    void TimeoutRound()
+    {
+        //Whoever is closest to the middle wins the round
+        roundFinished = true;
+        roundNumber++;
+
+        if (player1.distanceFromMid > player2.distanceFromMid)
+        {
+            Player1WinsRound();
+        }
+
+        if (player1.distanceFromMid < player2.distanceFromMid)
+        {
+            Player2WinsRound();
+        }
+
+        if (player1.distanceFromMid == player2.distanceFromMid)
+        {
+            roundNumber--;
+        }
+
+        player1Body.transform.position = new Vector2(-3, -1.82f);
+        player2Body.transform.position = new Vector2(3, -1.82f);
+
+        roundTimer = 3;
+        timer = 60;
+    }
+
+    void Reset()
+    {
+        roundFinished = true;
+        roundNumber = 0;
+        roundTimer = 3;
+        timer = 60;
+
+        player1Wins = 0;
+        player2Wins = 0;
+    }
+
+    void ResetHitBoxes()
+    {
+        //Player 1 Reset Hitboxes
+        player1StandLightHitBox.transform.position = p1ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
+        player1StandFierceHitBox.transform.position = p1ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
+
+        player1LowLightHitBox.transform.position = p1ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
+        player1LowFierceHitBox.transform.position = p1ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
+
+        //Player 2 Reset Hitboxes
+        player2StandLightHitBox.transform.position = p2ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
+        player2StandFierceHitBox.transform.position = p2ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
+
+        player2LowLightHitBox.transform.position = p2ResetLowPositions + new Vector3 (-0.04f, -0.053f, 0);
+        player2LowFierceHitBox.transform.position = p2ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
+    }
+}
