@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class StopRight : MonoBehaviour
 {
-    [Header("Game Object Variables")]
+    [Header("Script Variables")]
     //Using Variables from other Objects
-    private GameObject player1Object;
     private Player1Controls player1;
 
-    private GameObject player2Object;
     private Player2Controls player2;
 
     private void Start()
     {
-        player1Object = GameObject.FindGameObjectWithTag("Player1");
-        player1 = player1Object.GetComponent<Player1Controls>();
-
-        player2Object = GameObject.FindGameObjectWithTag("Player2");
-        player2 = player2Object.GetComponent<Player2Controls>();
+        player1 = GameObject.Find("Player1").GetComponent<Player1Controls>();
+        player2 = GameObject.Find("Player2").GetComponent<Player2Controls>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +22,6 @@ public class StopRight : MonoBehaviour
         {
             player1.moveRight = false;
         }
-
         
         if (collision.CompareTag("Player2Movement"))
         {

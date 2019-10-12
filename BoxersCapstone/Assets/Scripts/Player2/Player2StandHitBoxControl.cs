@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player2StandHitBoxControl : MonoBehaviour
 {
     //Using Variables from other Objects
-    private GameObject player2Object;
     private Player2Controls player2;
 
     //HitBoxes Frames
@@ -21,8 +20,7 @@ public class Player2StandHitBoxControl : MonoBehaviour
 
     void Start()
     {
-        player2Object = GameObject.FindGameObjectWithTag("Player2");
-        player2 = player2Object.GetComponent<Player2Controls>();
+        player2 = GetComponentInParent<Player2Controls>();
     }
 
     // Update is called once per frame
@@ -36,7 +34,7 @@ public class Player2StandHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player2.startUpFrames > 3.5 && player2.startUpFrames < 3.9)
+            if (player2.startUpFrames > 4.0 && player2.startUpFrames < 4.2)
             {
                 standLightPunchHitBox.SetActive(true);
                 standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime * 0.01f;
@@ -60,7 +58,7 @@ public class Player2StandHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player2.startUpFrames > 1.5 && player2.startUpFrames < 1.8)
+            if (player2.startUpFrames > 2.5 && player2.startUpFrames < 2.8)
             {
                 standFiercePunchHitBox.SetActive(true);
                 standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime * 0.01f;

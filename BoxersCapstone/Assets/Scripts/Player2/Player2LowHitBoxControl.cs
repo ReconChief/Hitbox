@@ -21,8 +21,7 @@ public class Player2LowHitBoxControl : MonoBehaviour
 
     void Start()
     {
-        player2Object = GameObject.FindGameObjectWithTag("Player2");
-        player2 = player2Object.GetComponent<Player2Controls>();
+        player2 = GetComponentInParent<Player2Controls>();
     }
 
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class Player2LowHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player2.startUpFrames > 3.5 && player2.startUpFrames < 3.9)
+            if (player2.startUpFrames > 4.0 && player2.startUpFrames < 4.2)
             {
                 lowLightPunchHitBox.SetActive(true);
                 lowLightPunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime * 0.01f;
@@ -60,7 +59,7 @@ public class Player2LowHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player2.startUpFrames > 1.5 && player2.startUpFrames < 1.8)
+            if (player2.startUpFrames > 2.5 && player2.startUpFrames < 2.8)
             {
                 lowFiercePunchHitBox.SetActive(true);
                 lowFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime * 0.01f;

@@ -8,12 +8,10 @@ public class GameController : MonoBehaviour
 {
     [Header("Game Object Variables")]
     //Using Variables from other Objects
-    private GameObject player1Object;
     private Player1Controls player1;
     public GameObject player1Body;
     public GameObject player1CrouchBody;
 
-    private GameObject player2Object;
     private Player2Controls player2;
     public GameObject player2Body;
     public GameObject player2CrouchBody;
@@ -88,20 +86,20 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        player1Object = GameObject.FindGameObjectWithTag("Player1");
-        player1 = player1Object.GetComponent<Player1Controls>();
+        player1 = GameObject.Find("Player1").GetComponent<Player1Controls>();
 
         p1ResetStandPositions = player1StandLightHitBox.transform.position;
         p1ResetLowPositions = player1LowLightHitBox.transform.position;
 
-        player2Object = GameObject.FindGameObjectWithTag("Player2");
-        player2 = player2Object.GetComponent<Player2Controls>();
+        player2 = GameObject.Find("Player2").GetComponent<Player2Controls>();
 
         p2ResetStandPositions = player2StandLightHitBox.transform.position;
         p2ResetLowPositions = player2LowLightHitBox.transform.position;
 
         p1ResetBoundaries = p1Boundaries.transform.position;
         p2ResetBoundaries = p2Boundaries.transform.position;
+
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
     }
 
     void Update()
@@ -132,7 +130,6 @@ public class GameController : MonoBehaviour
             timerText.text = timer.ToString("F0");
 
             ResetPositions();
-            //player1MovementBody.transform.position = new Vector3(-3f, 0, 0);
         }
 
         else

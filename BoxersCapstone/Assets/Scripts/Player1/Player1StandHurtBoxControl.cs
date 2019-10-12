@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player1StandHurtBoxControl : MonoBehaviour
 {
     //Using Variables from other Objects
-    private GameObject player1Object;
     private Player1Controls player1;
 
     #region Standing HurtBox Frames
@@ -19,8 +18,7 @@ public class Player1StandHurtBoxControl : MonoBehaviour
 
     void Start()
     {
-        player1Object = GameObject.FindGameObjectWithTag("Player1");
-        player1 = player1Object.GetComponent<Player1Controls>();
+        player1 = GetComponentInParent<Player1Controls>();
     }
 
     void Update()

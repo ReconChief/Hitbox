@@ -19,8 +19,7 @@ public class Player2LowHurtBoxControl : MonoBehaviour
 
     void Start()
     {
-        player2Object = GameObject.FindGameObjectWithTag("Player2");
-        player2 = player2Object.GetComponent<Player2Controls>();
+        player2 = GetComponentInParent<Player2Controls>();
     }
 
     void Update()

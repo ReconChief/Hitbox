@@ -52,7 +52,7 @@ public class Player1Controls : MonoBehaviour
 
     void Update()
     {
-        //Movement
+        #region Movement
         if (Input.GetKey(KeyCode.D) && !gc.roundFinished && moveRight) //Right
         {
             if (Input.GetKey(KeyCode.Q)) // Run
@@ -94,6 +94,7 @@ public class Player1Controls : MonoBehaviour
                 distanceFromMid = -3.19f;
             }
         }
+        #endregion
 
         if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
         {
@@ -128,34 +129,34 @@ public class Player1Controls : MonoBehaviour
 
             startUpFrames -= Time.deltaTime;
 
-            if (startUpFrames > 4.7f)
+            if (startUpFrames > 4.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.3f)
+            else if (startUpFrames > 4.6f)
             {
                 standFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.1f)
+            else if (startUpFrames > 4.4f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.9f)
+            else if (startUpFrames > 4.2f)
             {
                 standFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.2f)
+            else if (startUpFrames > 3.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames < 3.2f)
+            if (startUpFrames < 3.8f)
             {
                 standFrame2.SetActive(false);
                 standFrame3.SetActive(false);
@@ -178,67 +179,67 @@ public class Player1Controls : MonoBehaviour
 
             startUpFrames -= Time.deltaTime;
 
-            if (startUpFrames > 4.7f)
+            if (startUpFrames > 4.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.3f)
+            else if (startUpFrames > 4.6f)
             {
                 standFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.1f)
+            else if (startUpFrames > 4.4f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.9f)
+            else if (startUpFrames > 4.2f)
             {
                 standFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.6f)
+            else if (startUpFrames > 3.9f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.2f)
+            else if (startUpFrames > 3.7f)
             {            
                 standFrame4.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 2.8f)
+            else if (startUpFrames > 3.5f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 2.5f)
+            else if (startUpFrames > 3.3f)
             {
                 standFrame5.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames > 2.1f)
+            if (startUpFrames > 3.0f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 1.8f)
+            else if (startUpFrames > 2.8f)
             {
                 standFrame6.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 0.8f)
+            else if (startUpFrames > 2.0f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames < 0.8f)
+            if (startUpFrames < 2.0f)
             {
                 standFrame2.SetActive(false);
                 standFrame3.SetActive(false);
@@ -278,34 +279,34 @@ public class Player1Controls : MonoBehaviour
 
             startUpFrames -= Time.deltaTime;
 
-            if (startUpFrames > 4.7f)
+            if (startUpFrames > 4.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.3f)
+            else if (startUpFrames > 4.6f)
             {
                 lowFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.1f)
+            else if (startUpFrames > 4.4f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.9f)
+            else if (startUpFrames > 4.2f)
             {
                 lowFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.2f)
+            else if (startUpFrames > 3.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames < 3.2f)
+            if (startUpFrames < 3.8f)
             {
                 lowFrame2.SetActive(false);
                 lowFrame3.SetActive(false);
@@ -331,67 +332,67 @@ public class Player1Controls : MonoBehaviour
 
             startUpFrames -= Time.deltaTime;
 
-            if (startUpFrames > 4.7f)
+            if (startUpFrames > 4.8f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.3f)
+            else if (startUpFrames > 4.6f)
             {
                 lowFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 4.1f)
+            else if (startUpFrames > 4.4f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.9f)
+            else if (startUpFrames > 4.2f)
             {
                 lowFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.6f)
+            else if (startUpFrames > 3.9f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 3.2f)
+            else if (startUpFrames > 3.7f)
             {
                 lowFrame4.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 2.8f)
+            else if (startUpFrames > 3.5f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 2.5f)
+            else if (startUpFrames > 3.3f)
             {
                 lowFrame5.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames > 2.1f)
+            if (startUpFrames > 3.0f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 1.8f)
+            else if (startUpFrames > 2.8f)
             {
                 lowFrame6.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
-            else if (startUpFrames > 0.8f)
+            else if (startUpFrames > 2.0f)
             {
                 startUpFrames -= Time.deltaTime;
             }
 
-            if (startUpFrames < 0.8f)
+            if (startUpFrames < 2.0f)
             {
                 lowFrame2.SetActive(false);
                 lowFrame3.SetActive(false);
