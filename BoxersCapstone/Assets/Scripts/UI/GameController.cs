@@ -84,6 +84,9 @@ public class GameController : MonoBehaviour
 
     #endregion
 
+    [Header("Sound Effects")]
+    public AudioSource hit;
+
     void Start()
     {
         player1 = GameObject.Find("Player1").GetComponent<Player1Controls>();
@@ -276,6 +279,7 @@ public class GameController : MonoBehaviour
 
     public void Player1WinsRound()
     {
+        hit.Play();
         roundFinished = true; //Player freezes
         roundNumber++;
         player1Wins++;
