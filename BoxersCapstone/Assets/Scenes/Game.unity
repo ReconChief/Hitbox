@@ -163,7 +163,7 @@ MonoBehaviour:
   roundText: {fileID: 1499206828}
   p1Boundaries: {fileID: 1396096213}
   p2Boundaries: {fileID: 181655891}
-  timer: 60
+  timer: 30
   roundTimer: 3
   timerText: {fileID: 1417350892}
   numberOfRoundText: {fileID: 1499206830}
@@ -217,7 +217,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4c99af4e00b5324bb698590be1f1aae, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

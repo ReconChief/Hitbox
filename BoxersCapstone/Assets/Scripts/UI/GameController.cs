@@ -144,32 +144,27 @@ public class GameController : MonoBehaviour
         }
 
         #region Timer Color Change
-        if (timer >= 25 && timer <= 30)
+        if (timer >= 25 && timer <= 18)
         {
             timerText.color = new Color(1, .8f, .8f, 1);
         }
 
-        else if (timer >= 20 && timer <= 25)
-        {
-            timerText.color = new Color(1, .6f, .6f, 1);
-        }
-
-        else if (timer >= 15 && timer <= 20)
+        else if (timer >= 15 && timer <= 14)
         {
             timerText.color = new Color(1, .4f, .4f, 1);
         }
 
-        else if (timer >= 10 && timer <= 15)
+        else if (timer >= 10 && timer <= 10)
         {
             timerText.color = new Color(1, .3f, .3f, 1);
         }
 
-        else if (timer >= 5 && timer <= 10)
+        else if (timer >= 5 && timer <= 7)
         {
             timerText.color = new Color(1, .2f, .2f, 1);
         }
 
-        else if (timer >= 0 && timer <= 5)
+        else if (timer >= 0 && timer <= 4)
         {
             timerText.color = new Color(1, 0, 0, 1);
         }
@@ -288,7 +283,7 @@ public class GameController : MonoBehaviour
         player2Body.transform.position = new Vector2(3, -1.82f);
 
         roundTimer = 3;
-        timer = 60;
+        timer = 30;
     }
 
     public void Player2WinsRound()
@@ -301,15 +296,15 @@ public class GameController : MonoBehaviour
         player2Body.transform.position = new Vector2(3, -1.82f);
 
         roundTimer = 3;
-        timer = 60;
+        timer = 30;
     }
 
     void TimeoutRound()
     {
-        //Whoever is closest to the middle wins the round
         roundFinished = true;
         roundNumber++;
 
+        //Whoever is closest to the middle wins the round
         if (player1.distanceFromMid > player2.distanceFromMid)
         {
             Player1WinsRound();
@@ -329,7 +324,7 @@ public class GameController : MonoBehaviour
         player2Body.transform.position = new Vector2(3, -1.82f);
 
         roundTimer = 3;
-        timer = 60;
+        timer = 30;
     }
 
     void Reset()
@@ -337,7 +332,7 @@ public class GameController : MonoBehaviour
         roundFinished = true;
         roundNumber = 0;
         roundTimer = 3;
-        timer = 60;
+        timer = 30;
 
         player1Wins = 0;
         player2Wins = 0;
