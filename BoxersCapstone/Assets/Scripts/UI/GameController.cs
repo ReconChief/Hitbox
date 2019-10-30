@@ -92,6 +92,19 @@ public class GameController : MonoBehaviour
     [Header("Sound Effects")]
     public AudioSource hit;
 
+    void Awake()
+    {
+        if (PlayerPrefs.HasKey("roundNumber"))
+        {
+            RecoverGameData();
+        }
+
+        else
+        {
+            NewFight();
+        }
+    }
+
     void Start()
     {
         player1 = GameObject.Find("Player1").GetComponent<Player1Controls>();
@@ -112,6 +125,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+
         if (roundFinished && roundTimer >= 0) //Reset Round (player's position and updated UI Look)
         {
             //Timer to Display Round Number
@@ -137,7 +151,7 @@ public class GameController : MonoBehaviour
             timerText.color = new Color(1, 1, 1, 1);
             timerText.text = timer.ToString("F0");
 
-            ResetPositions();
+            //ResetPositions();
         }
 
         else
@@ -149,22 +163,22 @@ public class GameController : MonoBehaviour
         }
 
         #region Timer Color Change
-        if (timer >= 25 && timer <= 18)
+        if (timer >= 18 && timer <= 23)
         {
             timerText.color = new Color(1, .8f, .8f, 1);
         }
 
-        else if (timer >= 15 && timer <= 14)
+        else if (timer >= 14 && timer <= 17)
         {
             timerText.color = new Color(1, .4f, .4f, 1);
         }
 
-        else if (timer >= 10 && timer <= 10)
+        else if (timer >= 9 && timer <= 13)
         {
             timerText.color = new Color(1, .3f, .3f, 1);
         }
 
-        else if (timer >= 5 && timer <= 7)
+        else if (timer >= 5 && timer <= 8)
         {
             timerText.color = new Color(1, .2f, .2f, 1);
         }
@@ -267,19 +281,19 @@ public class GameController : MonoBehaviour
         {
             TimeoutRound();
         }
-
+        
         if (player1Wins >= 3)
         {
-            //Reset();
+            EraseGameData();
             SceneManager.LoadScene("Player1W");
         }
-
+        
         if (player2Wins >= 3)
         {
-            //Reset();
+            EraseGameData();
             SceneManager.LoadScene("Player2W");
         }
-
+        
         player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
         player2CrouchBody.transform.position = player2Body.transform.position + new Vector3(0, -1, 0);
     }
@@ -291,21 +305,12 @@ public class GameController : MonoBehaviour
         roundNumber++;
         player1Wins++;
 
-        /*
-        p1StandHitBox.SetActive(false);
-        p1LowHitBox.SetActive(false);
-        p2StandHitBox.SetActive(false);
-        p2LowHitBox.SetActive(false);
-        */
-        player1Body.transform.position = new Vector2(-3, -1.82f);
-        player2Body.transform.position = new Vector2(3, -1.82f);
+        SaveGameData();
+        SceneManager.LoadScene("Game");
 
-        /*
-        p1StandHitBox.SetActive(true);
-        p1LowHitBox.SetActive(false);
-        p2StandHitBox.SetActive(true);
-        p2LowHitBox.SetActive(false);
-        */
+        //player1Body.transform.position = new Vector2(-3, -1.82f);
+        //player2Body.transform.position = new Vector2(3, -1.82f);
+
         roundTimer = 3;
         timer = 30;
     }
@@ -313,24 +318,16 @@ public class GameController : MonoBehaviour
     public void Player2WinsRound()
     {
         hit.Play();
-        roundFinished = true; // Player freezes
+        roundFinished = true; //Player freezes
         roundNumber++;
         player2Wins++;
-        /*
-        p1StandHitBox.SetActive(false);
-        p1LowHitBox.SetActive(false);
-        p2StandHitBox.SetActive(false);
-        p2LowHitBox.SetActive(false);
-        */
-        player1Body.transform.position = new Vector2(-3, -1.82f);
-        player2Body.transform.position = new Vector2(3, -1.82f);
 
-        /*
-        p1StandHitBox.SetActive(true);
-        p1LowHitBox.SetActive(false);
-        p2StandHitBox.SetActive(true);
-        p2LowHitBox.SetActive(false);
-        */
+        SaveGameData();
+        SceneManager.LoadScene("Game");
+
+        //player1Body.transform.position = new Vector2(-3, -1.82f);
+        //player2Body.transform.position = new Vector2(3, -1.82f);
+
         roundTimer = 3;
         timer = 30;
     }
@@ -338,31 +335,31 @@ public class GameController : MonoBehaviour
     void TimeoutRound()
     {
         roundFinished = true;
-        roundNumber++;
 
         //Whoever is closest to the middle wins the round
         if (player1.distanceFromMid > player2.distanceFromMid)
         {
             Player1WinsRound();
+            roundNumber++;
         }
 
         if (player1.distanceFromMid < player2.distanceFromMid)
         {
             Player2WinsRound();
+            roundNumber++;
         }
 
-        if (player1.distanceFromMid == player2.distanceFromMid)
-        {
-            roundNumber--;
-        }
+        SaveGameData();
+        SceneManager.LoadScene("Game");
 
-        player1Body.transform.position = new Vector2(-3, -1.82f);
-        player2Body.transform.position = new Vector2(3, -1.82f);
+        //player1Body.transform.position = new Vector2(-3, -1.82f);
+        //player2Body.transform.position = new Vector2(3, -1.82f);
 
         roundTimer = 3;
         timer = 30;
     }
 
+    /*
     void ResetPositions()
     {
         //Player 1 Reset Hitboxes
@@ -382,5 +379,39 @@ public class GameController : MonoBehaviour
         //Reset Boundaries
         p1Boundaries.transform.position = p1ResetBoundaries;
         p2Boundaries.transform.position = p2ResetBoundaries;
+    }
+    */
+
+    void NewFight()
+    {
+        if(PlayerPrefs.HasKey("roundNumber"))
+        {
+            EraseGameData();
+        }
+
+        roundNumber = 1;
+        player1Wins = 0;
+        player2Wins = 0;
+    }
+
+    private void SaveGameData()
+    {
+        PlayerPrefs.SetInt("roundNumber", roundNumber);
+        PlayerPrefs.SetInt("player1W", player1Wins);
+        PlayerPrefs.SetInt("player2W", player2Wins);
+    }
+
+    private void RecoverGameData()
+    {
+        roundNumber = PlayerPrefs.GetInt("roundNumber");
+        player1Wins = PlayerPrefs.GetInt("player1W");
+        player2Wins = PlayerPrefs.GetInt("player2W");
+    }
+
+    private void EraseGameData()
+    {
+        PlayerPrefs.DeleteKey("roundNumber");
+        PlayerPrefs.DeleteKey("player1W");
+        PlayerPrefs.DeleteKey("player2W");
     }
 }

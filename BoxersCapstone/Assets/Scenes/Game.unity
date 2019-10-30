@@ -156,8 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbd65db07cc1b641a63f6628a936934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1StandHitBox: {fileID: 0}
+  p1LowHitBox: {fileID: 0}
   player1Body: {fileID: 1269244696}
   player1CrouchBody: {fileID: 8352464}
+  p2StandHitBox: {fileID: 0}
+  p2LowHitBox: {fileID: 0}
   player2Body: {fileID: 1119412158}
   player2CrouchBody: {fileID: 334473779}
   roundText: {fileID: 1499206828}
@@ -4131,6 +4135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 20.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788929075309436158, guid: 27c2a2b7ae26cdc4ea645ccfc3b0081b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27c2a2b7ae26cdc4ea645ccfc3b0081b, type: 3}
