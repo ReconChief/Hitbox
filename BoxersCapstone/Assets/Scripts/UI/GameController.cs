@@ -9,10 +9,14 @@ public class GameController : MonoBehaviour
     [Header("Game Object Variables")]
     //Using Variables from other Objects
     private Player1Controls player1;
+    public GameObject p1StandHitBox;
+    public GameObject p1LowHitBox;
     public GameObject player1Body;
     public GameObject player1CrouchBody;
 
     private Player2Controls player2;
+    public GameObject p2StandHitBox;
+    public GameObject p2LowHitBox;
     public GameObject player2Body;
     public GameObject player2CrouchBody;
 
@@ -30,7 +34,7 @@ public class GameController : MonoBehaviour
     public Text timerText;
     public Text numberOfRoundText;
 
-    //Resetting Hitboxes
+    #region Resetting Hitboxes
     [Header("Reset Variables")]
     private Vector3 p1ResetStandPositions;
     private Vector3 p1ResetLowPositions;
@@ -52,6 +56,7 @@ public class GameController : MonoBehaviour
 
     public GameObject player2LowLightHitBox;
     public GameObject player2LowFierceHitBox;
+    #endregion
 
     [Header("Round Variables")]
     #region Rounds Variables
@@ -263,9 +268,16 @@ public class GameController : MonoBehaviour
             TimeoutRound();
         }
 
-        if (player1Wins == 3 || player2Wins == 3)
+        if (player1Wins >= 3)
         {
-            Reset();
+            //Reset();
+            SceneManager.LoadScene("Player1W");
+        }
+
+        if (player2Wins >= 3)
+        {
+            //Reset();
+            SceneManager.LoadScene("Player2W");
         }
 
         player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
@@ -279,22 +291,46 @@ public class GameController : MonoBehaviour
         roundNumber++;
         player1Wins++;
 
+        /*
+        p1StandHitBox.SetActive(false);
+        p1LowHitBox.SetActive(false);
+        p2StandHitBox.SetActive(false);
+        p2LowHitBox.SetActive(false);
+        */
         player1Body.transform.position = new Vector2(-3, -1.82f);
         player2Body.transform.position = new Vector2(3, -1.82f);
 
+        /*
+        p1StandHitBox.SetActive(true);
+        p1LowHitBox.SetActive(false);
+        p2StandHitBox.SetActive(true);
+        p2LowHitBox.SetActive(false);
+        */
         roundTimer = 3;
         timer = 30;
     }
 
     public void Player2WinsRound()
     {
+        hit.Play();
         roundFinished = true; // Player freezes
         roundNumber++;
         player2Wins++;
-
+        /*
+        p1StandHitBox.SetActive(false);
+        p1LowHitBox.SetActive(false);
+        p2StandHitBox.SetActive(false);
+        p2LowHitBox.SetActive(false);
+        */
         player1Body.transform.position = new Vector2(-3, -1.82f);
         player2Body.transform.position = new Vector2(3, -1.82f);
 
+        /*
+        p1StandHitBox.SetActive(true);
+        p1LowHitBox.SetActive(false);
+        p2StandHitBox.SetActive(true);
+        p2LowHitBox.SetActive(false);
+        */
         roundTimer = 3;
         timer = 30;
     }
@@ -325,17 +361,6 @@ public class GameController : MonoBehaviour
 
         roundTimer = 3;
         timer = 30;
-    }
-
-    void Reset()
-    {
-        roundFinished = true;
-        roundNumber = 0;
-        roundTimer = 3;
-        timer = 30;
-
-        player1Wins = 0;
-        player2Wins = 0;
     }
 
     void ResetPositions()

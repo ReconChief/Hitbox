@@ -15,7 +15,6 @@ public class TitleScreen : MonoBehaviour
 
     public void Controls()
     {
-
         titleScreen.SetActive(false);
         controlScreen.SetActive(true);
     }
