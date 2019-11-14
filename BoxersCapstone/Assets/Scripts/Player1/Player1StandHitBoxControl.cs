@@ -35,9 +35,9 @@ public class Player1StandHitBoxControl : MonoBehaviour
 
             if (player1.startUpFrames > 4.0 && player1.startUpFrames < 4.2)
             {
+                hurtBox.SetActive(false);
                 standLightPunchHitBox.SetActive(true);
                 standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime * 0.01f;
-                hurtBox.SetActive(false);
             }
 
             else

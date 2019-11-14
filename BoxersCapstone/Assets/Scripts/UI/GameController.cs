@@ -107,12 +107,12 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        player1 = GameObject.Find("Player1").GetComponent<Player1Controls>();
+        player1 = GameObject.Find("Player1Cat").GetComponent<Player1Controls>();
 
         p1ResetStandPositions = player1StandLightHitBox.transform.position;
         p1ResetLowPositions = player1LowLightHitBox.transform.position;
 
-        player2 = GameObject.Find("Player2").GetComponent<Player2Controls>();
+        player2 = GameObject.Find("Player2Cat").GetComponent<Player2Controls>();
 
         p2ResetStandPositions = player2StandLightHitBox.transform.position;
         p2ResetLowPositions = player2LowLightHitBox.transform.position;
