@@ -150,8 +150,6 @@ public class GameController : MonoBehaviour
 
             timerText.color = new Color(0, 0, 0, 1);
             timerText.text = timer.ToString("F0");
-
-            //ResetPositions();
         }
 
         else
@@ -165,22 +163,22 @@ public class GameController : MonoBehaviour
         #region Timer Color Change
         if (timer >= 18 && timer <= 23)
         {
-            timerText.color = new Color(1, .8f, .8f, 1);
+            timerText.color = new Color(.2f, 0, 0, 1);
         }
 
         else if (timer >= 14 && timer <= 17)
         {
-            timerText.color = new Color(1, .4f, .4f, 1);
+            timerText.color = new Color(.4f, 0, 0, 1);
         }
 
         else if (timer >= 9 && timer <= 13)
         {
-            timerText.color = new Color(1, .3f, .3f, 1);
+            timerText.color = new Color(.6f, 0, 0, 1);
         }
 
         else if (timer >= 5 && timer <= 8)
         {
-            timerText.color = new Color(1, .2f, .2f, 1);
+            timerText.color = new Color(.8f, 0, 0, 1);
         }
 
         else if (timer >= 0 && timer <= 4)
