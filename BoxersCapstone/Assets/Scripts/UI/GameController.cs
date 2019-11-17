@@ -293,9 +293,6 @@ public class GameController : MonoBehaviour
             EraseGameData();
             SceneManager.LoadScene("Player2W");
         }
-        
-        //player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
-        //player2CrouchBody.transform.position = player2Body.transform.position + new Vector3(0, -1, 0);
     }
 
     public void Player1WinsRound()
@@ -307,9 +304,6 @@ public class GameController : MonoBehaviour
 
         SaveGameData();
         SceneManager.LoadScene("Game");
-
-        //player1Body.transform.position = new Vector2(-3, -1.82f);
-        //player2Body.transform.position = new Vector2(3, -1.82f);
 
         roundTimer = 3;
         timer = 30;
@@ -325,9 +319,6 @@ public class GameController : MonoBehaviour
         SaveGameData();
         SceneManager.LoadScene("Game");
 
-        //player1Body.transform.position = new Vector2(-3, -1.82f);
-        //player2Body.transform.position = new Vector2(3, -1.82f);
-
         roundTimer = 3;
         timer = 30;
     }
@@ -340,47 +331,19 @@ public class GameController : MonoBehaviour
         if (player1.distanceFromMid > player2.distanceFromMid)
         {
             Player1WinsRound();
-            roundNumber++;
         }
 
         else if (player1.distanceFromMid < player2.distanceFromMid)
         {
             Player2WinsRound();
-            roundNumber++;
         }
 
         SaveGameData();
         SceneManager.LoadScene("Game");
 
-        //player1Body.transform.position = new Vector2(-3, -1.82f);
-        //player2Body.transform.position = new Vector2(3, -1.82f);
-
         roundTimer = 3;
         timer = 30;
     }
-
-    /*
-    void ResetPositions()
-    {
-        //Player 1 Reset Hitboxes
-        player1StandLightHitBox.transform.position = p1ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
-        player1StandFierceHitBox.transform.position = p1ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
-
-        player1LowLightHitBox.transform.position = p1ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
-        player1LowFierceHitBox.transform.position = p1ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
-
-        //Player 2 Reset Hitboxes
-        player2StandLightHitBox.transform.position = p2ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
-        player2StandFierceHitBox.transform.position = p2ResetStandPositions + new Vector3(-0.035f, 0.017f, 0);
-
-        player2LowLightHitBox.transform.position = p2ResetLowPositions + new Vector3 (-0.04f, -0.053f, 0);
-        player2LowFierceHitBox.transform.position = p2ResetLowPositions + new Vector3(-0.04f, -0.053f, 0);
-
-        //Reset Boundaries
-        p1Boundaries.transform.position = p1ResetBoundaries;
-        p2Boundaries.transform.position = p2ResetBoundaries;
-    }
-    */
 
     void NewFight()
     {
