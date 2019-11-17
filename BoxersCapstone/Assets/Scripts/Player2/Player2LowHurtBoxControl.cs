@@ -8,13 +8,22 @@ public class Player2LowHurtBoxControl : MonoBehaviour
     private GameObject player2Object;
     private Player2Controls player2;
 
-    #region Low HurtBox Frames
-    public GameObject lowHurtBoxFrame1;
-    public GameObject lowHurtBoxFrame2;
-    public GameObject lowHurtBoxFrame3;
-    public GameObject lowHurtBoxFrame4;
-    public GameObject lowHurtBoxFrame5;
-    public GameObject lowHurtBoxFrame6;
+    public GameObject normalHurtBox;
+
+    [Header("Light Frames")]
+    #region Low Light HurtBox Frames
+    public GameObject lightHurtBoxFrame1;
+    public GameObject lightHurtBoxFrame2;
+    public GameObject lightHurtBoxFrame3;
+    #endregion
+
+    #region Low Fierce HurtBox Frames
+    public GameObject fierceHurtBoxFrame1;
+    public GameObject fierceHurtBoxFrame2;
+    public GameObject fierceHurtBoxFrame3;
+    public GameObject fierceHurtBoxFrame4;
+    public GameObject fierceHurtBoxFrame5;
+    public GameObject fierceHurtBoxFrame6;
     #endregion
 
     void Start()
@@ -24,44 +33,84 @@ public class Player2LowHurtBoxControl : MonoBehaviour
 
     void Update()
     {
-        if (player2.lowFrame2.activeSelf)
+        #region LightHurtBoxActivation
+        if (player2.lowLightFrame1.activeSelf)
         {
-            lowHurtBoxFrame1.SetActive(false);
-            lowHurtBoxFrame2.SetActive(true);
+            normalHurtBox.SetActive(false);
+            lightHurtBoxFrame1.SetActive(true);
+        }
 
-            if (player2.lowFrame3.activeSelf)
-            {
-                lowHurtBoxFrame2.SetActive(false);
-                lowHurtBoxFrame3.SetActive(true);
+        else if (player2.lowLightFrame2.activeSelf)
+        {
+            lightHurtBoxFrame1.SetActive(false);
+            lightHurtBoxFrame2.SetActive(true);
+        }
 
-                if (player2.lowFrame4.activeSelf)
-                {
-                    lowHurtBoxFrame3.SetActive(false);
-                    lowHurtBoxFrame4.SetActive(true);
-
-                    if (player2.lowFrame5.activeSelf)
-                    {
-                        lowHurtBoxFrame4.SetActive(false);
-                        lowHurtBoxFrame5.SetActive(true);
-
-                        if (player2.lowFrame6.activeSelf)
-                        {
-                            lowHurtBoxFrame5.SetActive(false);
-                            lowHurtBoxFrame6.SetActive(true);
-                        }
-                    }
-                }
-            }
+        else if (player2.lowLightFrame3.activeSelf)
+        {
+            lightHurtBoxFrame2.SetActive(false);
+            lightHurtBoxFrame3.SetActive(true);
         }
 
         else
         {
-            lowHurtBoxFrame1.SetActive(true);
-            lowHurtBoxFrame2.SetActive(false);
-            lowHurtBoxFrame3.SetActive(false);
-            lowHurtBoxFrame4.SetActive(false);
-            lowHurtBoxFrame5.SetActive(false);
-            lowHurtBoxFrame6.SetActive(false);
+            lightHurtBoxFrame1.SetActive(false);
+            lightHurtBoxFrame2.SetActive(false);
+            lightHurtBoxFrame3.SetActive(false);
+
+            normalHurtBox.SetActive(true);
         }
+        #endregion
+
+        #region FierceHurtBoxActivation
+        if (player2.lowFierceFrame1.activeSelf)
+        {
+            normalHurtBox.SetActive(false);
+            fierceHurtBoxFrame1.SetActive(true);
+        }
+
+        else if (player2.lowFierceFrame2.activeSelf)
+        {
+            fierceHurtBoxFrame1.SetActive(false);
+            fierceHurtBoxFrame2.SetActive(true);
+        }
+
+        else if (player2.lowFierceFrame3.activeSelf)
+        {
+            fierceHurtBoxFrame2.SetActive(false);
+            fierceHurtBoxFrame3.SetActive(true);
+        }
+
+        else if (player2.lowFierceFrame4.activeSelf)
+        {
+            fierceHurtBoxFrame3.SetActive(false);
+            fierceHurtBoxFrame4.SetActive(true);
+        }
+
+        else if (player2.lowFierceFrame5.activeSelf)
+        {
+            fierceHurtBoxFrame4.SetActive(false);
+            fierceHurtBoxFrame5.SetActive(true);
+        }
+
+        else if (player2.lowFierceFrame6.activeSelf)
+        {
+            fierceHurtBoxFrame5.SetActive(false);
+            fierceHurtBoxFrame6.SetActive(true);
+        }
+
+        else
+        {
+            fierceHurtBoxFrame1.SetActive(false);
+            fierceHurtBoxFrame2.SetActive(false);
+            fierceHurtBoxFrame3.SetActive(false);
+            fierceHurtBoxFrame4.SetActive(false);
+            fierceHurtBoxFrame5.SetActive(false);
+            fierceHurtBoxFrame6.SetActive(false);
+
+            normalHurtBox.SetActive(true);
+        }
+        #endregion
+
     }
 }

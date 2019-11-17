@@ -24,24 +24,34 @@ public class Player2Controls : MonoBehaviour
     private GameObject gameController;
     private GameController gc;
 
+    public GameObject Frame0;
+
     //Frames
     [Header("Frames")]
     #region Stand Frames
-    public GameObject standFrame1;
-    public GameObject standFrame2;
-    public GameObject standFrame3;
-    public GameObject standFrame4;
-    public GameObject standFrame5;
-    public GameObject standFrame6;
+    public GameObject standLightFrame1;
+    public GameObject standLightFrame2;
+    public GameObject standLightFrame3;
+
+    public GameObject standFierceFrame1;
+    public GameObject standFierceFrame2;
+    public GameObject standFierceFrame3;
+    public GameObject standFierceFrame4;
+    public GameObject standFierceFrame5;
+    public GameObject standFierceFrame6;
     #endregion
 
     #region Low Frames
-    public GameObject lowFrame1;
-    public GameObject lowFrame2;
-    public GameObject lowFrame3;
-    public GameObject lowFrame4;
-    public GameObject lowFrame5;
-    public GameObject lowFrame6;
+    public GameObject lowLightFrame1;
+    public GameObject lowLightFrame2;
+    public GameObject lowLightFrame3;
+
+    public GameObject lowFierceFrame1;
+    public GameObject lowFierceFrame2;
+    public GameObject lowFierceFrame3;
+    public GameObject lowFierceFrame4;
+    public GameObject lowFierceFrame5;
+    public GameObject lowFierceFrame6;
     #endregion
 
     void Start()
@@ -113,19 +123,21 @@ public class Player2Controls : MonoBehaviour
         //Stand Light Punch Function
         if (startUpFrames < 5 && standLightP)
         {
-            standFrame1.SetActive(true);
-            lowFrame1.SetActive(false);
+            Frame0.SetActive(false);
+            lowLightFrame1.SetActive(false);
 
             startUpFrames -= Time.deltaTime;
 
             if (startUpFrames > 4.8f)
             {
+                standLightFrame1.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
             else if (startUpFrames > 4.6f)
             {
-                standFrame2.SetActive(true);
+                standLightFrame1.SetActive(false);
+                standLightFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -136,7 +148,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 4.2f)
             {
-                standFrame3.SetActive(true);
+                standLightFrame2.SetActive(false);
+                standLightFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -147,11 +160,8 @@ public class Player2Controls : MonoBehaviour
 
             if (startUpFrames < 3.8f)
             {
-                standFrame2.SetActive(false);
-                standFrame3.SetActive(false);
-                standFrame4.SetActive(false);
-                standFrame5.SetActive(false);
-                standFrame6.SetActive(false);
+                standLightFrame3.SetActive(false);
+                Frame0.SetActive(true);
 
                 startUpFrames = 5.0f;
                 playerSpeed = 3.5f;
@@ -163,19 +173,21 @@ public class Player2Controls : MonoBehaviour
         //Stand Fierce Punch Function
         if (startUpFrames < 5 && standFierceP)
         {
-            standFrame1.SetActive(true);
-            lowFrame1.SetActive(false);
+            Frame0.SetActive(false);
+            lowLightFrame1.SetActive(false);
 
             startUpFrames -= Time.deltaTime;
 
             if (startUpFrames > 4.8f)
             {
+                standFierceFrame1.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
             else if (startUpFrames > 4.6f)
             {
-                standFrame2.SetActive(true);
+                standFierceFrame1.SetActive(false);
+                standFierceFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -186,7 +198,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 4.2f)
             {
-                standFrame3.SetActive(true);
+                standFierceFrame2.SetActive(false);
+                standFierceFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -197,7 +210,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 3.7f)
             {
-                standFrame4.SetActive(true);
+                standFierceFrame3.SetActive(false);
+                standFierceFrame4.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -208,7 +222,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 3.3f)
             {
-                standFrame5.SetActive(true);
+                standFierceFrame4.SetActive(false);
+                standFierceFrame5.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -219,7 +234,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 2.8f)
             {
-                standFrame6.SetActive(true);
+                standFierceFrame5.SetActive(false);
+                standFierceFrame6.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -230,11 +246,8 @@ public class Player2Controls : MonoBehaviour
 
             if (startUpFrames < 2.0f)
             {
-                standFrame2.SetActive(false);
-                standFrame3.SetActive(false);
-                standFrame4.SetActive(false);
-                standFrame5.SetActive(false);
-                standFrame6.SetActive(false);
+                Frame0.SetActive(true);
+                standFierceFrame6.SetActive(false);
 
                 startUpFrames = 5.0f;
                 playerSpeed = 3.5f;
@@ -263,19 +276,20 @@ public class Player2Controls : MonoBehaviour
         //Low Light Punch Function
         if (startUpFrames < 5 && lowLightP)
         {
-            standFrame1.SetActive(false);
-            lowFrame1.SetActive(true);
+            Frame0.SetActive(false);
 
             startUpFrames -= Time.deltaTime;
 
             if (startUpFrames > 4.8f)
             {
+                lowLightFrame1.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
             else if (startUpFrames > 4.6f)
             {
-                lowFrame2.SetActive(true);
+                lowLightFrame1.SetActive(false);
+                lowLightFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -286,7 +300,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 4.2f)
             {
-                lowFrame3.SetActive(true);
+                lowLightFrame2.SetActive(false);
+                lowLightFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -297,38 +312,33 @@ public class Player2Controls : MonoBehaviour
 
             if (startUpFrames < 3.8f)
             {
-                lowFrame2.SetActive(false);
-                lowFrame3.SetActive(false);
-                lowFrame4.SetActive(false);
-                lowFrame5.SetActive(false);
-                lowFrame6.SetActive(false);
+                lowLightFrame3.SetActive(false);
+                Frame0.SetActive(true);
 
                 startUpFrames = 5.0f;
                 playerSpeed = 3.5f;
                 lowInputTime = 1.0f;
                 lowLightP = false;
-
-                standFrame1.SetActive(true);
-                lowFrame1.SetActive(false);
             }
         }
 
         //Low Fierce Punch Function
         if (startUpFrames < 5 && lowFierceP)
         {
-            standFrame1.SetActive(false);
-            lowFrame1.SetActive(true);
+            Frame0.SetActive(false);
 
             startUpFrames -= Time.deltaTime;
 
             if (startUpFrames > 4.8f)
             {
+                lowFierceFrame1.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
             else if (startUpFrames > 4.6f)
             {
-                lowFrame2.SetActive(true);
+                lowFierceFrame1.SetActive(false);
+                lowFierceFrame2.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -339,7 +349,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 4.2f)
             {
-                lowFrame3.SetActive(true);
+                lowFierceFrame2.SetActive(false);
+                lowFierceFrame3.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -350,7 +361,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 3.7f)
             {
-                lowFrame4.SetActive(true);
+                lowFierceFrame3.SetActive(false);
+                lowFierceFrame4.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -361,7 +373,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 3.3f)
             {
-                lowFrame5.SetActive(true);
+                lowFierceFrame4.SetActive(false);
+                lowFierceFrame5.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -372,7 +385,8 @@ public class Player2Controls : MonoBehaviour
 
             else if (startUpFrames > 2.8f)
             {
-                lowFrame6.SetActive(true);
+                lowFierceFrame5.SetActive(false);
+                lowFierceFrame6.SetActive(true);
                 startUpFrames -= Time.deltaTime;
             }
 
@@ -383,19 +397,14 @@ public class Player2Controls : MonoBehaviour
 
             if (startUpFrames < 2.0f)
             {
-                lowFrame2.SetActive(false);
-                lowFrame3.SetActive(false);
-                lowFrame4.SetActive(false);
-                lowFrame5.SetActive(false);
-                lowFrame6.SetActive(false);
+                lowFierceFrame6.SetActive(false);
+
+                Frame0.SetActive(true);
 
                 startUpFrames = 5.0f;
                 playerSpeed = 3.5f;
                 lowInputTime = 1.0f;
                 lowFierceP = false;
-
-                standFrame1.SetActive(true);
-                lowFrame1.SetActive(false);
             }
         }
 

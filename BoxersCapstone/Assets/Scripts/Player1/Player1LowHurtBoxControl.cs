@@ -63,5 +63,54 @@ public class Player1LowHurtBoxControl : MonoBehaviour
         }
         #endregion
 
+        #region FierceHurtBoxActivation
+        if (player1.lowFierceFrame1.activeSelf)
+        {
+            normalHurtBox.SetActive(false);
+            fierceHurtBoxFrame1.SetActive(true);
+        }
+
+        else if (player1.lowFierceFrame2.activeSelf)
+        {
+            fierceHurtBoxFrame1.SetActive(false);
+            fierceHurtBoxFrame2.SetActive(true);
+        }
+
+        else if (player1.lowFierceFrame3.activeSelf)
+        {
+            fierceHurtBoxFrame2.SetActive(false);
+            fierceHurtBoxFrame3.SetActive(true);
+        }
+
+        else if (player1.lowFierceFrame4.activeSelf)
+        {
+            fierceHurtBoxFrame3.SetActive(false);
+            fierceHurtBoxFrame4.SetActive(true);
+        }
+
+        else if (player1.lowFierceFrame5.activeSelf)
+        {
+            fierceHurtBoxFrame4.SetActive(false);
+            fierceHurtBoxFrame5.SetActive(true);
+        }
+
+        else if (player1.lowFierceFrame6.activeSelf)
+        {
+            fierceHurtBoxFrame5.SetActive(false);
+            fierceHurtBoxFrame6.SetActive(true);
+        }
+
+        else
+        {
+            fierceHurtBoxFrame1.SetActive(false);
+            fierceHurtBoxFrame2.SetActive(false);
+            fierceHurtBoxFrame3.SetActive(false);
+            fierceHurtBoxFrame4.SetActive(false);
+            fierceHurtBoxFrame5.SetActive(false);
+            fierceHurtBoxFrame6.SetActive(false);
+
+            normalHurtBox.SetActive(true);
+        }
+        #endregion
     }
 }

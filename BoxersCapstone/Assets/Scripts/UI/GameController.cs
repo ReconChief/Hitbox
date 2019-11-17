@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
                 numberOfRoundText.text = "FIGHT";
             }
 
-            timerText.color = new Color(1, 1, 1, 1);
+            timerText.color = new Color(0, 0, 0, 1);
             timerText.text = timer.ToString("F0");
 
             //ResetPositions();
@@ -282,20 +282,20 @@ public class GameController : MonoBehaviour
             TimeoutRound();
         }
         
-        if (player1Wins >= 3)
+        else if (player1Wins >= 3)
         {
             EraseGameData();
             SceneManager.LoadScene("Player1W");
         }
         
-        if (player2Wins >= 3)
+        else if (player2Wins >= 3)
         {
             EraseGameData();
             SceneManager.LoadScene("Player2W");
         }
         
-        player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
-        player2CrouchBody.transform.position = player2Body.transform.position + new Vector3(0, -1, 0);
+        //player1CrouchBody.transform.position = player1Body.transform.position + new Vector3 (0,-1,0);
+        //player2CrouchBody.transform.position = player2Body.transform.position + new Vector3(0, -1, 0);
     }
 
     public void Player1WinsRound()
@@ -343,7 +343,7 @@ public class GameController : MonoBehaviour
             roundNumber++;
         }
 
-        if (player1.distanceFromMid < player2.distanceFromMid)
+        else if (player1.distanceFromMid < player2.distanceFromMid)
         {
             Player2WinsRound();
             roundNumber++;
