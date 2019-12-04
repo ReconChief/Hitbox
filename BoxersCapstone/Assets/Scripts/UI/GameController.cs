@@ -92,6 +92,10 @@ public class GameController : MonoBehaviour
     [Header("Sound Effects")]
     public AudioSource hit;
 
+    [Header("Soundtracks")]
+    public AudioSource bgm;
+    public AudioSource bgmFastPaced;
+
     void Awake()
     {
         if (PlayerPrefs.HasKey("roundNumber"))
@@ -121,6 +125,8 @@ public class GameController : MonoBehaviour
         p2ResetBoundaries = p2Boundaries.transform.position;
 
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
+
+        bgm.Play();
     }
 
     void Update()
@@ -169,6 +175,12 @@ public class GameController : MonoBehaviour
         else if (timer >= 14 && timer <= 17)
         {
             timerText.color = new Color(.4f, 0, 0, 1);
+
+            if (!bgmFastPaced.isPlaying)
+            {
+                bgm.Stop();
+                bgmFastPaced.Play();
+            }
         }
 
         else if (timer >= 9 && timer <= 13)
