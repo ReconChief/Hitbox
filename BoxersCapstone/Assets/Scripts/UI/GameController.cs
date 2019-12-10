@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public GameObject player2CrouchBody;
 
     public GameObject roundText;
+    public GameObject winnerText;
 
     public GameObject p1Boundaries;
     public GameObject p2Boundaries;
@@ -29,10 +30,12 @@ public class GameController : MonoBehaviour
     //Timers
     public float timer;
     public float roundTimer;
+    public float endTimer;
 
     //UI Text
     public Text timerText;
     public Text numberOfRoundText;
+    public Text winner;
 
     #region Resetting Hitboxes
     [Header("Reset Variables")]
@@ -95,6 +98,14 @@ public class GameController : MonoBehaviour
     [Header("Soundtracks")]
     public AudioSource bgm;
     public AudioSource bgmFastPaced;
+
+    [Header("HitStun Frames")]
+    public GameObject p1Stand;
+    public GameObject p2Stand;
+    public GameObject p1hitStunFrame1;
+    public GameObject p1hitStunFrame2;
+    public GameObject p2hitStunFrame1;
+    public GameObject p2hitStunFrame2;
 
     void Awake()
     {
@@ -307,16 +318,35 @@ public class GameController : MonoBehaviour
 
     public void Player1WinsRound()
     {
+        winnerText.SetActive(true);
+
+        winner.text = "PLAYER 1 WINS ";
+
         hit.Play();
         roundFinished = true; //Player freezes
         roundNumber++;
         player1Wins++;
 
         SaveGameData();
-        SceneManager.LoadScene("Game");
 
-        roundTimer = 3;
-        timer = 30;
+        for (endTimer = 10.0f; endTimer > 0;)
+        {
+            p2Stand.SetActive(false);
+            
+            if (endTimer > 7)
+            {
+                p2hitStunFrame1.SetActive(true);
+            }
+
+            if (endTimer > 4)
+            {
+                p2hitStunFrame2.SetActive(true);
+            }
+
+            endTimer -= Time.deltaTime;
+        }
+            
+        SceneManager.LoadScene("Game");
     }
 
     public void Player2WinsRound()
@@ -328,9 +358,6 @@ public class GameController : MonoBehaviour
 
         SaveGameData();
         SceneManager.LoadScene("Game");
-
-        roundTimer = 3;
-        timer = 30;
     }
 
     void TimeoutRound()
@@ -350,9 +377,6 @@ public class GameController : MonoBehaviour
 
         SaveGameData();
         SceneManager.LoadScene("Game");
-
-        roundTimer = 3;
-        timer = 30;
     }
 
     void NewFight()

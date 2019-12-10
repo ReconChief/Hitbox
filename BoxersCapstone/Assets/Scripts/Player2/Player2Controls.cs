@@ -63,7 +63,7 @@ public class Player2Controls : MonoBehaviour
     void Update()
     {
         #region Movement
-        if (Input.GetKey(KeyCode.Keypad6) && !gc.roundFinished && moveRight) //Right
+        if (Input.GetKey(KeyCode.RightArrow) && !gc.roundFinished && moveRight) //Right
         {
             Vector3 movement = new Vector3(1f, 0f, 0f);
             transform.position += movement * Time.deltaTime * playerSpeed;
@@ -79,7 +79,7 @@ public class Player2Controls : MonoBehaviour
             }
         }
 
-        else if (Input.GetKey(KeyCode.Keypad4) && !gc.roundFinished && moveLeft) //Left
+        else if (Input.GetKey(KeyCode.LeftArrow) && !gc.roundFinished && moveLeft) //Left
         {
             Vector3 movement = new Vector3(-1f, 0f, 0f);
             transform.position += movement * Time.deltaTime * playerSpeed;
@@ -95,25 +95,25 @@ public class Player2Controls : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetKey(KeyCode.Keypad8) && !Input.GetKey(KeyCode.Keypad5) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
+        if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
         {
             standInputTime -= Time.deltaTime;
         }
 
-        else if (Input.GetKey(KeyCode.Keypad5) && !Input.GetKey(KeyCode.Keypad8) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
+        else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
         {
             lowInputTime -= Time.deltaTime;
         }
 
         #region Stand Light/Fierce Punch
-        if (Input.GetKeyUp(KeyCode.Keypad8) && !Input.GetKeyUp(KeyCode.Keypad5) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
+        if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
         {
             playerSpeed = 0f;
             startUpFrames -= 0.1f;
             standLightP = true;
         }
 
-        else if (Input.GetKeyUp(KeyCode.Keypad8) && !Input.GetKeyUp(KeyCode.Keypad5) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
+        else if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
         {
             playerSpeed = 0f;
             startUpFrames -= 0.1f;
@@ -259,14 +259,14 @@ public class Player2Controls : MonoBehaviour
         #endregion
 
         #region Low Light/Fierce Punch
-        if (Input.GetKeyUp(KeyCode.Keypad5) && !Input.GetKeyUp(KeyCode.Keypad8) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
+        if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
         {
             playerSpeed = 0f;
             startUpFrames -= 0.1f;
             lowLightP = true;
         }
 
-        else if (Input.GetKeyUp(KeyCode.Keypad5) && !Input.GetKeyUp(KeyCode.Keypad8) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
+        else if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
         {
             playerSpeed = 0f;
             startUpFrames -= 0.1f;
