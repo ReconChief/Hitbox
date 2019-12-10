@@ -15,7 +15,7 @@ public class Player2HitBox : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player1HurtBox"))
+        if (collision.CompareTag("Player1HurtBox") && !gc.roundFinished)
         {
             gc.Player2WinsRound();
         }

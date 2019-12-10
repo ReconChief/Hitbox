@@ -64,6 +64,8 @@ public class GameController : MonoBehaviour
     [Header("Round Variables")]
     #region Rounds Variables
     public bool roundFinished = true;
+    public bool p1Win = false;
+    public bool p2Win = false;
     public int roundNumber = 1;
 
     //# of Rounds Won per Player
@@ -142,8 +144,54 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (p1Win || p2Win)
+        {
+            if (p1Win)
+            {
+                p2Stand.SetActive(false);
 
-        if (roundFinished && roundTimer >= 0) //Reset Round (player's position and updated UI Look)
+                if (endTimer > 4)
+                {
+                    p2hitStunFrame1.SetActive(true);
+                }
+
+                else if (endTimer > 2)
+                {
+                    p2hitStunFrame2.SetActive(true);
+                }
+
+                else if (endTimer <= 0)
+                {
+                    SceneManager.LoadScene("Game");
+                }
+
+                endTimer -= Time.deltaTime;
+            }
+
+            else if (p2Win)
+            {
+                p1Stand.SetActive(false);
+
+                if (endTimer > 4)
+                {
+                    p1hitStunFrame1.SetActive(true);
+                }
+
+                else if (endTimer > 2)
+                {
+                    p1hitStunFrame2.SetActive(true);
+                }
+
+                else if (endTimer <= 0)
+                {
+                    SceneManager.LoadScene("Game");
+                }
+
+                endTimer -= Time.deltaTime;
+            }
+        }
+
+        else if (roundFinished && roundTimer >= 0) //Reset Round (player's position and updated UI Look)
         {
             //Timer to Display Round Number
             roundTimer -= Time.deltaTime;
@@ -324,40 +372,30 @@ public class GameController : MonoBehaviour
 
         hit.Play();
         roundFinished = true; //Player freezes
+        p1Win = true; //Player freezes
         roundNumber++;
         player1Wins++;
 
+        endTimer = 5.0f;
+
         SaveGameData();
-
-        for (endTimer = 10.0f; endTimer > 0;)
-        {
-            p2Stand.SetActive(false);
-            
-            if (endTimer > 7)
-            {
-                p2hitStunFrame1.SetActive(true);
-            }
-
-            if (endTimer > 4)
-            {
-                p2hitStunFrame2.SetActive(true);
-            }
-
-            endTimer -= Time.deltaTime;
-        }
-            
-        SceneManager.LoadScene("Game");
     }
 
     public void Player2WinsRound()
     {
+        winnerText.SetActive(true);
+
+        winner.text = "PLAYER 2 WINS ";
+
         hit.Play();
         roundFinished = true; //Player freezes
+        p2Win = true; //Player freezes
         roundNumber++;
         player2Wins++;
 
+        endTimer = 5.0f;
+
         SaveGameData();
-        SceneManager.LoadScene("Game");
     }
 
     void TimeoutRound()
