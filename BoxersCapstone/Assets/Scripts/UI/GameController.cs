@@ -96,7 +96,9 @@ public class GameController : MonoBehaviour
 
     [Header("Sound Effects")]
     public AudioSource hit;
-
+    public AudioSource p1HappyCat;
+    public AudioSource p2HappyCat;
+    
     [Header("Soundtracks")]
     public AudioSource bgm;
     public AudioSource bgmFastPaced;
@@ -201,15 +203,19 @@ public class GameController : MonoBehaviour
             if (roundTimer >= 2)
             {
                 numberOfRoundText.text = "ROUND " + roundNumber.ToString();
+                p1HappyCat.Play();
             }
 
             else if (roundTimer >= 0.5)
             {
                 numberOfRoundText.text = "READY";
+                p2HappyCat.Play();
             }
 
             else if (roundTimer >= 0)
             {
+                p1HappyCat.Play();
+                p2HappyCat.Play();
                 numberOfRoundText.text = "FIGHT";
             }
 

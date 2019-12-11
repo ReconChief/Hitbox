@@ -200,6 +200,8 @@ MonoBehaviour:
   player2LowLightHitBox: {fileID: 138434408}
   player2LowFierceHitBox: {fileID: 1914267799}
   roundFinished: 1
+  p1Win: 0
+  p2Win: 0
   roundNumber: 1
   player1Wins: 0
   player2Wins: 0
@@ -216,6 +218,8 @@ MonoBehaviour:
   player2Round2Won: {fileID: 1608429589}
   player2Round3Won: {fileID: 383051534}
   hit: {fileID: 356334534}
+  p1HappyCat: {fileID: 1482358462}
+  p2HappyCat: {fileID: 2020986087}
   bgm: {fileID: 560109121}
   bgmFastPaced: {fileID: 256070801}
   p1Stand: {fileID: 20142710}
@@ -3048,7 +3052,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3373f4aa8767dae4aab6ff2415f3bf97, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3865,7 +3869,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 01a615057bf63c74d92aa17aacaa24a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
