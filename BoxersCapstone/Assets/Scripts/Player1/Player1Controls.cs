@@ -62,6 +62,8 @@ public class Player1Controls : MonoBehaviour
 
     void Update()
     {
+        #region KeyBoard Controls
+
         #region Movement
         if (Input.GetKey(KeyCode.D) && !gc.roundFinished && moveRight) //Right
         {
@@ -106,6 +108,7 @@ public class Player1Controls : MonoBehaviour
         }
         #endregion
 
+        #region Input Time
         if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
         {
             standInputTime -= Time.deltaTime;
@@ -115,8 +118,9 @@ public class Player1Controls : MonoBehaviour
         {
             lowInputTime -= Time.deltaTime;
         }
+        #endregion
 
-        #region Stand Light/Fierce Punch
+        //Stand Claws
         if (Input.GetKeyUp(KeyCode.W) && !Input.GetKeyUp(KeyCode.S) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
         {
             playerSpeed = 0f;
@@ -130,6 +134,113 @@ public class Player1Controls : MonoBehaviour
             startUpFrames -= 0.1f;
             standFierceP = true;
         }
+
+        //Low Claws
+        if (Input.GetKeyUp(KeyCode.S) && !Input.GetKeyUp(KeyCode.W) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            lowLightP = true;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.S) && !Input.GetKeyUp(KeyCode.W) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            lowFierceP = true;
+        }
+        #endregion
+
+        #region Controller Controls
+        #region Movement
+        if (Input.GetAxis("P1DPad") == 1 && !gc.roundFinished && moveRight) //Right
+        {
+            if (Input.GetKey(KeyCode.Q)) // Run
+            {
+                Vector3 movement = new Vector3(1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * 5.0f;
+            }
+
+            else
+            {
+                Vector3 movement = new Vector3(1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * playerSpeed;
+            }
+
+            if (distanceFromMid < 3.3)
+            {
+                distanceFromMid += Time.deltaTime;
+            }
+
+            else if (distanceFromMid >= 3.3)
+            {
+                distanceFromMid = 3.29f;
+            }
+        }
+
+        else if (Input.GetAxis("P1DPad") == -1 && !gc.roundFinished && moveLeft) //Left
+        {
+            Vector3 movement = new Vector3(-1f, 0f, 0f);
+            transform.position += movement * Time.deltaTime * playerSpeed;
+
+            if (distanceFromMid > -3.2)
+            {
+                distanceFromMid -= Time.deltaTime;
+            }
+
+            else if (distanceFromMid <= -3.2)
+            {
+
+                distanceFromMid = -3.19f;
+            }
+        }
+        #endregion
+
+        #region Input Time
+        if (Input.GetKey(KeyCode.Joystick1Button2) && !Input.GetKey(KeyCode.Joystick1Button0) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
+        {
+            Debug.Log("Works");
+            standInputTime -= Time.deltaTime;
+        }
+
+        else if (Input.GetKey(KeyCode.Joystick1Button0) && !Input.GetKey(KeyCode.Joystick1Button2) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
+        {
+            lowInputTime -= Time.deltaTime;
+        }
+        #endregion
+
+        //Stand Claws
+        if (Input.GetKeyUp(KeyCode.Joystick1Button2) && !Input.GetKeyUp(KeyCode.Joystick1Button0) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            standLightP = true;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button2) && !Input.GetKeyUp(KeyCode.Joystick1Button0) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            standFierceP = true;
+        }
+
+        //Low Claws
+        if (Input.GetKeyUp(KeyCode.Joystick1Button0) && !Input.GetKeyUp(KeyCode.Joystick1Button2) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            lowLightP = true;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.Joystick1Button0) && !Input.GetKeyUp(KeyCode.Joystick1Button2) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
+        {
+            playerSpeed = 0f;
+            startUpFrames -= 0.1f;
+            lowFierceP = true;
+        }
+        #endregion
+
+        #region Stand Light/Fierce Punch
 
         //Stand Light Punch Function
         if (startUpFrames < 5 && standLightP)
@@ -267,23 +378,9 @@ public class Player1Controls : MonoBehaviour
             }
         }
 
-        #endregion
+       #endregion
 
         #region Low Light/Fierce Punch
-        if (Input.GetKeyUp(KeyCode.S) && !Input.GetKeyUp(KeyCode.W) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowLightP = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.S) && !Input.GetKeyUp(KeyCode.W) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowFierceP = true;
-        }
-
         //Low Light Punch Function
         if (startUpFrames < 5 && lowLightP)
         {
