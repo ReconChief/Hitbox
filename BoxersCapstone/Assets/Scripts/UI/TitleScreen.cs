@@ -6,11 +6,26 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
     public GameObject titleScreen;
-    public GameObject controlScreen;
 
-    public void playGame()
+    public GameObject controlScreen;
+    public GameObject keyboardScreen;
+    public GameObject controllerScreen;
+    public GameObject optionsScreen;
+
+    public GameObject stageSelectScreen;
+
+    public void returnToTitle()
     {
-        SceneManager.LoadScene("Game");
+        titleScreen.SetActive(true);
+        controlScreen.SetActive(false);
+        stageSelectScreen.SetActive(false);
+    }
+
+    public void returnToControls()
+    {
+        optionsScreen.SetActive(true);
+        keyboardScreen.SetActive(false);
+        controllerScreen.SetActive(false);
     }
 
     public void Controls()
@@ -19,10 +34,22 @@ public class TitleScreen : MonoBehaviour
         controlScreen.SetActive(true);
     }
 
-    public void turnOffControls()
+    public void keyboardControls()
     {
-        titleScreen.SetActive(true);
-        controlScreen.SetActive(false);
+        optionsScreen.SetActive(false);
+        keyboardScreen.SetActive(true);
+    }
+
+    public void controllerControls()
+    {
+        optionsScreen.SetActive(false);
+        controllerScreen.SetActive(true);
+    }
+
+    public void StageSelect()
+    {
+        titleScreen.SetActive(false);
+        stageSelectScreen.SetActive(true);
     }
 
     public void quitGame()
