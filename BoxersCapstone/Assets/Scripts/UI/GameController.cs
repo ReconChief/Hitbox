@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     [Header("Game Object Variables")]
     //Using Variables from other Objects
+    #region Player 1 And 2 Objects
     private Player1Controls player1;
     public GameObject p1StandHitBox;
     public GameObject p1LowHitBox;
@@ -19,6 +20,9 @@ public class GameController : MonoBehaviour
     public GameObject p2LowHitBox;
     public GameObject player2Body;
     public GameObject player2CrouchBody;
+    #endregion
+
+    public StageSelection stageSelected;
 
     public GameObject roundText;
     public GameObject winnerText;
@@ -100,8 +104,12 @@ public class GameController : MonoBehaviour
     public AudioSource p2HappyCat;
     
     [Header("Soundtracks")]
-    public AudioSource bgm;
-    public AudioSource bgmFastPaced;
+    public AudioSource parkTheme;
+    public AudioSource dojoTheme;
+    public AudioSource catClubTheme;
+    public AudioSource intenseParkTheme;
+    public AudioSource intenseDojoTheme;
+    public AudioSource intenseCatClubTheme;
 
     [Header("HitStun Frames")]
     public GameObject p1Stand;
@@ -139,9 +147,9 @@ public class GameController : MonoBehaviour
         p1ResetBoundaries = p1Boundaries.transform.position;
         p2ResetBoundaries = p2Boundaries.transform.position;
 
-        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        stageSelected = this.GetComponent<StageSelection>();
 
-        bgm.Play();
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
     }
 
     void Update()
@@ -203,20 +211,29 @@ public class GameController : MonoBehaviour
             if (roundTimer >= 2)
             {
                 numberOfRoundText.text = "ROUND " + roundNumber.ToString();
-                p1HappyCat.Play();
+                if (roundTimer == 2.1)
+                {
+                    p1HappyCat.Play();
+                }
             }
 
             else if (roundTimer >= 0.5)
             {
                 numberOfRoundText.text = "READY";
-                p2HappyCat.Play();
+                if (roundTimer == 0.51)
+                {
+                    p2HappyCat.Play();
+                }
             }
 
             else if (roundTimer >= 0)
             {
-                p1HappyCat.Play();
-                p2HappyCat.Play();
                 numberOfRoundText.text = "FIGHT";
+                if (roundTimer == 0.1)
+                {
+                    p1HappyCat.Play();
+                    p2HappyCat.Play();
+                }
             }
 
             timerText.color = new Color(0, 0, 0, 1);
@@ -240,12 +257,6 @@ public class GameController : MonoBehaviour
         else if (timer >= 14 && timer <= 17)
         {
             timerText.color = new Color(.4f, 0, 0, 1);
-
-            if (!bgmFastPaced.isPlaying)
-            {
-                bgm.Stop();
-                bgmFastPaced.Play();
-            }
         }
 
         else if (timer >= 9 && timer <= 13)
@@ -367,6 +378,49 @@ public class GameController : MonoBehaviour
         {
             EraseGameData();
             SceneManager.LoadScene("Player2W");
+        }
+
+
+        if (stageSelected.stages[0].activeSelf)
+        {
+            if (timer > 15 && !parkTheme.isPlaying)
+            {
+                parkTheme.Play();
+            }
+
+            else if (timer < 15 && !intenseParkTheme.isPlaying)
+            {
+                parkTheme.Stop();
+                intenseParkTheme.Play();
+            }
+        }
+
+        if (stageSelected.stages[1].activeSelf)
+        {
+            if (timer > 15 && !dojoTheme.isPlaying)
+            {
+                dojoTheme.Play();
+            }
+
+            else if (timer < 15 && !intenseDojoTheme.isPlaying)
+            {
+                dojoTheme.Stop();
+                intenseDojoTheme.Play();
+            }
+        }
+
+        if (stageSelected.stages[2].activeSelf)
+        {
+            if (timer > 15 && !catClubTheme.isPlaying)
+            {
+                catClubTheme.Play();
+            }
+
+            else if (timer < 15 && !intenseCatClubTheme.isPlaying)
+            {
+                catClubTheme.Stop();
+                intenseCatClubTheme.Play();
+            }
         }
     }
 
