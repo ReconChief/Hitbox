@@ -62,435 +62,438 @@ public class Player2Controls : MonoBehaviour
 
     void Update()
     {
-        #region Keyboard Controls
-
-        #region Movement
-        if (Input.GetKey(KeyCode.RightArrow) && !gc.roundFinished && moveRight) //Right
+        if (!gc.paused)
         {
-            Vector3 movement = new Vector3(1f, 0f, 0f);
-            transform.position += movement * Time.deltaTime * playerSpeed;
+            #region Keyboard Controls
 
-            if (distanceFromMid < 3.3)
+            #region Movement
+            if (Input.GetKey(KeyCode.RightArrow) && !gc.roundFinished && moveRight) //Right
             {
-                distanceFromMid -= Time.deltaTime;
+                Vector3 movement = new Vector3(1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * playerSpeed;
+
+                if (distanceFromMid < 3.3)
+                {
+                    distanceFromMid -= Time.deltaTime;
+                }
+
+                else if (distanceFromMid >= -3.2)
+                {
+                    distanceFromMid = -3.19f;
+                }
             }
 
-            else if (distanceFromMid >= -3.2)
+            else if (Input.GetKey(KeyCode.LeftArrow) && !gc.roundFinished && moveLeft) //Left
             {
-                distanceFromMid = -3.19f;
+                Vector3 movement = new Vector3(-1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * playerSpeed;
+                if (distanceFromMid > -3.2)
+                {
+                    distanceFromMid += Time.deltaTime;
+                }
+
+                else if (distanceFromMid <= 3.3)
+                {
+                    distanceFromMid = 3.29f;
+                }
             }
-        }
+            #endregion
 
-        else if (Input.GetKey(KeyCode.LeftArrow) && !gc.roundFinished && moveLeft) //Left
-        {
-            Vector3 movement = new Vector3(-1f, 0f, 0f);
-            transform.position += movement * Time.deltaTime * playerSpeed;
-            if (distanceFromMid > -3.2)
+            #region Input Time
+            if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
             {
-                distanceFromMid += Time.deltaTime;
-            }
-
-            else if (distanceFromMid <= 3.3)
-            {
-                distanceFromMid = 3.29f;
-            }
-        }
-        #endregion
-
-        #region Input Time
-        if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
-        {
-            standInputTime -= Time.deltaTime;
-        }
-
-        else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
-        {
-            lowInputTime -= Time.deltaTime;
-        }
-        #endregion
-        
-        //Stand Claws
-        if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            standLightP = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            standFierceP = true;
-        }
-
-        //Low Claws
-        if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowLightP = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowFierceP = true;
-        }
-        #endregion
-
-        #region Controller Controls
-
-        #region Movement
-        if (Input.GetAxis("P2DPad") == 1 && !gc.roundFinished && moveRight) //Right
-        {
-            Vector3 movement = new Vector3(1f, 0f, 0f);
-            transform.position += movement * Time.deltaTime * playerSpeed;
-
-            if (distanceFromMid < 3.3)
-            {
-                distanceFromMid -= Time.deltaTime;
+                standInputTime -= Time.deltaTime;
             }
 
-            else if (distanceFromMid >= -3.2)
+            else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
             {
-                distanceFromMid = -3.19f;
+                lowInputTime -= Time.deltaTime;
             }
-        }
+            #endregion
 
-        else if (Input.GetAxis("P2DPad") == -1 && !gc.roundFinished && moveLeft) //Left
-        {
-            Vector3 movement = new Vector3(-1f, 0f, 0f);
-            transform.position += movement * Time.deltaTime * playerSpeed;
-            if (distanceFromMid > -3.2)
+            //Stand Claws
+            if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
             {
-                distanceFromMid += Time.deltaTime;
-            }
-
-            else if (distanceFromMid <= 3.3)
-            {
-                distanceFromMid = 3.29f;
-            }
-        }
-        #endregion
-
-        #region Input Time
-        if (Input.GetKey(KeyCode.Joystick2Button2) && !Input.GetKey(KeyCode.Joystick2Button0) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
-        {
-            standInputTime -= Time.deltaTime;
-        }
-
-        else if (Input.GetKey(KeyCode.Joystick2Button0) && !Input.GetKey(KeyCode.Joystick2Button2) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
-        {
-            lowInputTime -= Time.deltaTime;
-        }
-        #endregion
-
-        //Stand Claws
-        if (Input.GetKeyUp(KeyCode.Joystick2Button2) && !Input.GetKeyUp(KeyCode.Joystick2Button0) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            standLightP = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.Joystick2Button2) && !Input.GetKeyUp(KeyCode.Joystick2Button0) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            standFierceP = true;
-        }
-
-        //Low Claws
-        if (Input.GetKeyUp(KeyCode.Joystick2Button0) && !Input.GetKeyUp(KeyCode.Joystick2Button2) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowLightP = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.Joystick2Button0) && !Input.GetKeyUp(KeyCode.Joystick2Button2) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
-        {
-            playerSpeed = 0f;
-            startUpFrames -= 0.1f;
-            lowFierceP = true;
-        }
-        #endregion
-
-        #region Stand Light/Fierce Punch
-        //Stand Light Punch Function
-        if (startUpFrames < 5 && standLightP)
-        {
-            Frame0.SetActive(false);
-            lowLightFrame1.SetActive(false);
-
-            startUpFrames -= Time.deltaTime;
-
-            if (startUpFrames > 4.8f)
-            {
-                standLightFrame1.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                standLightP = true;
             }
 
-            else if (startUpFrames > 4.6f)
+            else if (Input.GetKeyUp(KeyCode.UpArrow) && !Input.GetKeyUp(KeyCode.DownArrow) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
             {
-                standLightFrame1.SetActive(false);
-                standLightFrame2.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                standFierceP = true;
             }
 
-            else if (startUpFrames > 4.4f)
+            //Low Claws
+            if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
             {
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                lowLightP = true;
             }
 
-            else if (startUpFrames > 4.2f)
+            else if (Input.GetKeyUp(KeyCode.DownArrow) && !Input.GetKeyUp(KeyCode.UpArrow) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
             {
-                standLightFrame2.SetActive(false);
-                standLightFrame3.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                lowFierceP = true;
+            }
+            #endregion
+
+            #region Controller Controls
+
+            #region Movement
+            if (Input.GetAxis("P2DPad") == 1 && !gc.roundFinished && moveRight) //Right
+            {
+                Vector3 movement = new Vector3(1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * playerSpeed;
+
+                if (distanceFromMid < 3.3)
+                {
+                    distanceFromMid -= Time.deltaTime;
+                }
+
+                else if (distanceFromMid >= -3.2)
+                {
+                    distanceFromMid = -3.19f;
+                }
             }
 
-            else if (startUpFrames > 3.8f)
+            else if (Input.GetAxis("P2DPad") == -1 && !gc.roundFinished && moveLeft) //Left
             {
-                startUpFrames -= Time.deltaTime;
+                Vector3 movement = new Vector3(-1f, 0f, 0f);
+                transform.position += movement * Time.deltaTime * playerSpeed;
+                if (distanceFromMid > -3.2)
+                {
+                    distanceFromMid += Time.deltaTime;
+                }
+
+                else if (distanceFromMid <= 3.3)
+                {
+                    distanceFromMid = 3.29f;
+                }
+            }
+            #endregion
+
+            #region Input Time
+            if (Input.GetKey(KeyCode.Joystick2Button2) && !Input.GetKey(KeyCode.Joystick2Button0) && !gc.roundFinished) //Input Time to determine Light or Fierce Punch
+            {
+                standInputTime -= Time.deltaTime;
             }
 
-            if (startUpFrames < 3.8f)
+            else if (Input.GetKey(KeyCode.Joystick2Button0) && !Input.GetKey(KeyCode.Joystick2Button2) && !gc.roundFinished) //Input Time to determine Low Light or Low Fierce Punch
             {
-                standLightFrame3.SetActive(false);
-                Frame0.SetActive(true);
-
-                startUpFrames = 5.0f;
-                playerSpeed = 3.5f;
-                standInputTime = 1.0f;
-                standLightP = false;
+                lowInputTime -= Time.deltaTime;
             }
-        }
+            #endregion
 
-        //Stand Fierce Punch Function
-        if (startUpFrames < 5 && standFierceP)
-        {
-            Frame0.SetActive(false);
-            lowLightFrame1.SetActive(false);
-
-            startUpFrames -= Time.deltaTime;
-
-            if (startUpFrames > 4.8f)
+            //Stand Claws
+            if (Input.GetKeyUp(KeyCode.Joystick2Button2) && !Input.GetKeyUp(KeyCode.Joystick2Button0) && startUpFrames == 5 && standInputTime > 0.6f && !gc.roundFinished) //Light Punch
             {
-                standFierceFrame1.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                standLightP = true;
             }
 
-            else if (startUpFrames > 4.6f)
+            else if (Input.GetKeyUp(KeyCode.Joystick2Button2) && !Input.GetKeyUp(KeyCode.Joystick2Button0) && startUpFrames == 5 && standInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
             {
-                standFierceFrame1.SetActive(false);
-                standFierceFrame2.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                standFierceP = true;
             }
 
-            else if (startUpFrames > 4.4f)
+            //Low Claws
+            if (Input.GetKeyUp(KeyCode.Joystick2Button0) && !Input.GetKeyUp(KeyCode.Joystick2Button2) && startUpFrames == 5 && lowInputTime > 0.6f && !gc.roundFinished) //Light Punch
             {
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                lowLightP = true;
             }
 
-            else if (startUpFrames > 4.2f)
+            else if (Input.GetKeyUp(KeyCode.Joystick2Button0) && !Input.GetKeyUp(KeyCode.Joystick2Button2) && startUpFrames == 5 && lowInputTime < 0.6f && !gc.roundFinished) //Fierce Punch
             {
-                standFierceFrame2.SetActive(false);
-                standFierceFrame3.SetActive(true);
-                startUpFrames -= Time.deltaTime;
+                playerSpeed = 0f;
+                startUpFrames -= 0.1f;
+                lowFierceP = true;
             }
+            #endregion
 
-            else if (startUpFrames > 3.9f)
+            #region Stand Light/Fierce Punch
+            //Stand Light Punch Function
+            if (startUpFrames < 5 && standLightP)
             {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.7f)
-            {
-                standFierceFrame3.SetActive(false);
-                standFierceFrame4.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.5f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.3f)
-            {
-                standFierceFrame4.SetActive(false);
-                standFierceFrame5.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            if (startUpFrames > 3.0f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 2.8f)
-            {
-                standFierceFrame5.SetActive(false);
-                standFierceFrame6.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 2.0f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            if (startUpFrames < 2.0f)
-            {
-                Frame0.SetActive(true);
-                standFierceFrame6.SetActive(false);
-
-                startUpFrames = 5.0f;
-                playerSpeed = 3.5f;
-                standInputTime = 1.0f;
-                standFierceP = false;
-            }
-        }
-        #endregion
-
-        #region Low Light/Fierce Punch
-        //Low Light Punch Function
-        if (startUpFrames < 5 && lowLightP)
-        {
-            Frame0.SetActive(false);
-
-            startUpFrames -= Time.deltaTime;
-
-            if (startUpFrames > 4.8f)
-            {
-                lowLightFrame1.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 4.6f)
-            {
+                Frame0.SetActive(false);
                 lowLightFrame1.SetActive(false);
-                lowLightFrame2.SetActive(true);
+
                 startUpFrames -= Time.deltaTime;
+
+                if (startUpFrames > 4.8f)
+                {
+                    standLightFrame1.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.6f)
+                {
+                    standLightFrame1.SetActive(false);
+                    standLightFrame2.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.4f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.2f)
+                {
+                    standLightFrame2.SetActive(false);
+                    standLightFrame3.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.8f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames < 3.8f)
+                {
+                    standLightFrame3.SetActive(false);
+                    Frame0.SetActive(true);
+
+                    startUpFrames = 5.0f;
+                    playerSpeed = 3.5f;
+                    standInputTime = 1.0f;
+                    standLightP = false;
+                }
             }
 
-            else if (startUpFrames > 4.4f)
+            //Stand Fierce Punch Function
+            if (startUpFrames < 5 && standFierceP)
             {
+                Frame0.SetActive(false);
+                lowLightFrame1.SetActive(false);
+
                 startUpFrames -= Time.deltaTime;
-            }
 
-            else if (startUpFrames > 4.2f)
+                if (startUpFrames > 4.8f)
+                {
+                    standFierceFrame1.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.6f)
+                {
+                    standFierceFrame1.SetActive(false);
+                    standFierceFrame2.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.4f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.2f)
+                {
+                    standFierceFrame2.SetActive(false);
+                    standFierceFrame3.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.9f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.7f)
+                {
+                    standFierceFrame3.SetActive(false);
+                    standFierceFrame4.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.5f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.3f)
+                {
+                    standFierceFrame4.SetActive(false);
+                    standFierceFrame5.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames > 3.0f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 2.8f)
+                {
+                    standFierceFrame5.SetActive(false);
+                    standFierceFrame6.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 2.0f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames < 2.0f)
+                {
+                    Frame0.SetActive(true);
+                    standFierceFrame6.SetActive(false);
+
+                    startUpFrames = 5.0f;
+                    playerSpeed = 3.5f;
+                    standInputTime = 1.0f;
+                    standFierceP = false;
+                }
+            }
+            #endregion
+
+            #region Low Light/Fierce Punch
+            //Low Light Punch Function
+            if (startUpFrames < 5 && lowLightP)
             {
-                lowLightFrame2.SetActive(false);
-                lowLightFrame3.SetActive(true);
+                Frame0.SetActive(false);
+
                 startUpFrames -= Time.deltaTime;
+
+                if (startUpFrames > 4.8f)
+                {
+                    lowLightFrame1.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.6f)
+                {
+                    lowLightFrame1.SetActive(false);
+                    lowLightFrame2.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.4f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.2f)
+                {
+                    lowLightFrame2.SetActive(false);
+                    lowLightFrame3.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.8f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames < 3.8f)
+                {
+                    lowLightFrame3.SetActive(false);
+                    Frame0.SetActive(true);
+
+                    startUpFrames = 5.0f;
+                    playerSpeed = 3.5f;
+                    lowInputTime = 1.0f;
+                    lowLightP = false;
+                }
             }
 
-            else if (startUpFrames > 3.8f)
+            //Low Fierce Punch Function
+            if (startUpFrames < 5 && lowFierceP)
             {
+                Frame0.SetActive(false);
+
                 startUpFrames -= Time.deltaTime;
-            }
 
-            if (startUpFrames < 3.8f)
-            {
-                lowLightFrame3.SetActive(false);
-                Frame0.SetActive(true);
+                if (startUpFrames > 4.8f)
+                {
+                    lowFierceFrame1.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
 
-                startUpFrames = 5.0f;
-                playerSpeed = 3.5f;
-                lowInputTime = 1.0f;
-                lowLightP = false;
+                else if (startUpFrames > 4.6f)
+                {
+                    lowFierceFrame1.SetActive(false);
+                    lowFierceFrame2.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.4f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 4.2f)
+                {
+                    lowFierceFrame2.SetActive(false);
+                    lowFierceFrame3.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.9f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.7f)
+                {
+                    lowFierceFrame3.SetActive(false);
+                    lowFierceFrame4.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.5f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 3.3f)
+                {
+                    lowFierceFrame4.SetActive(false);
+                    lowFierceFrame5.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames > 3.0f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 2.8f)
+                {
+                    lowFierceFrame5.SetActive(false);
+                    lowFierceFrame6.SetActive(true);
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                else if (startUpFrames > 2.0f)
+                {
+                    startUpFrames -= Time.deltaTime;
+                }
+
+                if (startUpFrames < 2.0f)
+                {
+                    lowFierceFrame6.SetActive(false);
+
+                    Frame0.SetActive(true);
+
+                    startUpFrames = 5.0f;
+                    playerSpeed = 3.5f;
+                    lowInputTime = 1.0f;
+                    lowFierceP = false;
+                }
             }
+            #endregion
         }
-
-        //Low Fierce Punch Function
-        if (startUpFrames < 5 && lowFierceP)
-        {
-            Frame0.SetActive(false);
-
-            startUpFrames -= Time.deltaTime;
-
-            if (startUpFrames > 4.8f)
-            {
-                lowFierceFrame1.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 4.6f)
-            {
-                lowFierceFrame1.SetActive(false);
-                lowFierceFrame2.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 4.4f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 4.2f)
-            {
-                lowFierceFrame2.SetActive(false);
-                lowFierceFrame3.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.9f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.7f)
-            {
-                lowFierceFrame3.SetActive(false);
-                lowFierceFrame4.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.5f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 3.3f)
-            {
-                lowFierceFrame4.SetActive(false);
-                lowFierceFrame5.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            if (startUpFrames > 3.0f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 2.8f)
-            {
-                lowFierceFrame5.SetActive(false);
-                lowFierceFrame6.SetActive(true);
-                startUpFrames -= Time.deltaTime;
-            }
-
-            else if (startUpFrames > 2.0f)
-            {
-                startUpFrames -= Time.deltaTime;
-            }
-
-            if (startUpFrames < 2.0f)
-            {
-                lowFierceFrame6.SetActive(false);
-
-                Frame0.SetActive(true);
-
-                startUpFrames = 5.0f;
-                playerSpeed = 3.5f;
-                lowInputTime = 1.0f;
-                lowFierceP = false;
-            }
-        }
-        #endregion
     }
 }
