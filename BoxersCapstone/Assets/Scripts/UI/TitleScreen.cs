@@ -7,13 +7,12 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
     public GameObject titleScreen;
-
     public GameObject controlScreen;
     public GameObject keyboardScreen;
     public GameObject controllerScreen;
     public GameObject optionsScreen;
-
     public GameObject stageSelectScreen;
+    public GameObject catSelectionScreen;
 
     //Buttons For Next Screens
     [Header("Buttons")]
@@ -37,6 +36,13 @@ public class TitleScreen : MonoBehaviour
         keyboardScreen.SetActive(false);
         controllerScreen.SetActive(false);
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(controlsButton, null);
+    }
+
+    public void returnToStageSelect()
+    {
+        stageSelectScreen.SetActive(true);
+        catSelectionScreen.SetActive(false);
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(stageSelectButton, null);
     }
 
     public void Controls()
@@ -65,6 +71,12 @@ public class TitleScreen : MonoBehaviour
         titleScreen.SetActive(false);
         stageSelectScreen.SetActive(true);
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(stageSelectButton,null);
+    }
+
+    public void CatSelect()
+    {
+        stageSelectScreen.SetActive(false);
+        catSelectionScreen.SetActive(true);
     }
 
     public void quitGame()

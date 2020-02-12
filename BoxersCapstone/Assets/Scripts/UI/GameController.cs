@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     public StageSelection stageSelected;
+    public CatSelection catSelected;
 
     public GameObject roundText;
     public GameObject winnerText;
@@ -163,6 +164,7 @@ public class GameController : MonoBehaviour
         p2ResetBoundaries = p2Boundaries.transform.position;
 
         stageSelected = this.GetComponent<StageSelection>();
+        catSelected = this.GetComponent<CatSelection>();
 
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
     }
@@ -444,7 +446,6 @@ public class GameController : MonoBehaviour
             {
                 paused = true;
                 Time.timeScale = 0f;
-                //GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(resumeButton, null);
             }
         }
 

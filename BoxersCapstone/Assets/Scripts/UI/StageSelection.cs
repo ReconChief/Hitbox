@@ -7,6 +7,8 @@ public class StageSelection : MonoBehaviour
 {
     public GameObject[] stages = new GameObject[3];
 
+    private TitleScreen titleScreen;
+
     private int currentNumber = 0;
 
     private void Start()
@@ -15,6 +17,8 @@ public class StageSelection : MonoBehaviour
         {
             RecoverGameData();
         }
+
+        titleScreen = GameObject.FindGameObjectWithTag("GameController").GetComponent<TitleScreen>();
     }
 
     private void Update()
@@ -59,10 +63,10 @@ public class StageSelection : MonoBehaviour
         }
     }
 
-    public void playGame()
+    public void catSelection()
     {
         SaveGameData();
-        SceneManager.LoadScene("Game");
+        titleScreen.CatSelect();
     }
 
     private void SaveGameData()
