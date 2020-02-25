@@ -604,10 +604,10 @@ MonoBehaviour:
   p2HappyCat: {fileID: 2020986087}
   parkTheme: {fileID: 560109121}
   dojoTheme: {fileID: 292086904}
-  catClubTheme: {fileID: 0}
+  catClubTheme: {fileID: 1521299788}
   intenseParkTheme: {fileID: 256070801}
   intenseDojoTheme: {fileID: 402197365}
-  intenseCatClubTheme: {fileID: 0}
+  intenseCatClubTheme: {fileID: 999051490}
   p1Stand: {fileID: 20142710}
   p2Stand: {fileID: 232676101}
   p1hitStunFrame1: {fileID: 1220312237}

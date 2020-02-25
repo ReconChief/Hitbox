@@ -9,11 +9,11 @@ public class LerpColor : MonoBehaviour
 
     [Range(0f, 1f)] public float lerpTime;
 
-    public Color[] differentColors = new Color[5];
+    public Color[] differentColors = new Color[8];
 
-    private int colorIndex = 0;
+    public int colorIndex = 0;
 
-    private float time = 0f;
+    public float time = 0f;
 
     void Update()
     {
