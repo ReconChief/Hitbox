@@ -13,7 +13,7 @@ public class CatsFlying : MonoBehaviour
     
     private void Start()
     {
-        lerp = GameObject.FindGameObjectWithTag("GameController").GetComponent<LerpColor>();
+        lerp = GameObject.Find("BG").GetComponent<LerpColor>();
     }
 
     // Update is called once per frame
