@@ -21,12 +21,16 @@ public class CatSelection : MonoBehaviour
 
     void Start()
     {
-        if (string.Equals(SceneManager.GetActiveScene().name, "Game"))
+        if (string.Equals(SceneManager.GetActiveScene().name, "Game") || string.Equals(SceneManager.GetActiveScene().name, "Player1W")
+            || string.Equals(SceneManager.GetActiveScene().name, "Player2W"))
         {
             RecoverGameData();
         }
 
-        titleScreen = GameObject.FindGameObjectWithTag("GameController").GetComponent<TitleScreen>();
+        if (string.Equals(SceneManager.GetActiveScene().name, "TitleScreen"))
+        {
+            titleScreen = GameObject.FindGameObjectWithTag("GameController").GetComponent<TitleScreen>();
+        }
     }
 
     private void Update()
@@ -331,9 +335,9 @@ public class CatSelection : MonoBehaviour
                     StartGame();
                 }
             }
-        }           
+        }
 
-        else
+        else if(string.Equals(SceneManager.GetActiveScene().name, "Player1W"))
         {
             //Player 1 Cats
             switch (player1CatNumber)
@@ -419,7 +423,10 @@ public class CatSelection : MonoBehaviour
                     player1Cats[7].SetActive(true);
                     break;
             }
+        }
 
+        else if (string.Equals(SceneManager.GetActiveScene().name, "Player2W"))
+        {
             //Player 2 Cats
             switch (player2CatNumber)
             {
