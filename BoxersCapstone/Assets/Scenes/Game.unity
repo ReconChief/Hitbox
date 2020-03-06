@@ -854,6 +854,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121130640}
   m_CullTransparentMesh: 0
+--- !u!1 &121906327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121906328}
+  - component: {fileID: 121906330}
+  - component: {fileID: 121906329}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &121906328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121906327}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2055358477}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 19.3, y: -10.3}
+  m_SizeDelta: {x: 272.9, y: 120.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &121906329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121906327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &121906330
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121906327}
+  m_CullTransparentMesh: 0
 --- !u!1 &132631610
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +1018,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter3
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -2250,7 +2325,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter7
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -2265,7 +2340,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -2977,6 +3052,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &397767504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397767505}
+  - component: {fileID: 397767507}
+  - component: {fileID: 397767506}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &397767505
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397767504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1055141169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 18, y: -10.299988}
+  m_SizeDelta: {x: 272.9, y: 120.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &397767506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397767504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &397767507
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397767504}
+  m_CullTransparentMesh: 0
 --- !u!1 &402197363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,7 +3311,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3481,7 +3631,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3760,7 +3910,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3788,7 +3938,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter3
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -3803,7 +3953,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -4517,7 +4667,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter5
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -4532,7 +4682,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -4729,7 +4879,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter8
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -5169,7 +5319,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1055141169}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5189,7 +5339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5307,7 +5457,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter6
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -5694,7 +5844,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6063,7 +6213,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter7
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -6624,7 +6774,7 @@ RectTransform:
   - {fileID: 567650505}
   - {fileID: 383051535}
   m_Father: {fileID: 1055141169}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6658,6 +6808,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 397767505}
   - {fileID: 780795138}
   - {fileID: 1030688310}
   m_Father: {fileID: 1429317283}
@@ -7034,7 +7185,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter4
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -7049,7 +7200,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -7452,7 +7603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7697,7 +7848,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter2
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -7712,7 +7863,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -8623,7 +8774,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8657,7 +8808,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter6
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -8672,7 +8823,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -8889,7 +9040,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2055358477}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8909,7 +9060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9603,7 +9754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9666,7 +9817,7 @@ RectTransform:
   - {fileID: 1764625435}
   - {fileID: 1381643907}
   m_Father: {fileID: 2055358477}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10193,7 +10344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10551,7 +10702,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter8
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -10566,7 +10717,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -11581,7 +11732,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter2
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -11793,7 +11944,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter5
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -12058,7 +12209,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fb20d9b09c4991b43943cf8132ee6e82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b810b5f150372940a857db1da4c8688, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13222,6 +13373,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 121906328}
   - {fileID: 1327542258}
   - {fileID: 1419047645}
   m_Father: {fileID: 1429317283}
@@ -13423,7 +13575,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter4
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -13635,7 +13787,7 @@ PrefabInstance:
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
       propertyPath: m_Name
-      value: Player1CatFighter1
+      value: Player1CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 5009858020701799560, guid: ec193b4c293db6b4a8050c1dae2d0cb8,
         type: 3}
@@ -13715,7 +13867,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_Name
-      value: Player2CatFighter1
+      value: Player2CatFighter
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196205, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
@@ -13730,7 +13882,7 @@ PrefabInstance:
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -190.12157
+      value: -190.2216
       objectReference: {fileID: 0}
     - target: {fileID: 7423964395611196206, guid: 5aba8571b522b644c92a1e2822a358ae,
         type: 3}

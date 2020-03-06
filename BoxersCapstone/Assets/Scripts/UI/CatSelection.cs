@@ -512,6 +512,180 @@ public class CatSelection : MonoBehaviour
                     break;
             }
         }
+
+        else if (string.Equals(SceneManager.GetActiveScene().name, "Game"))
+        {
+            //Player 1 Cats
+            switch (player1CatNumber)
+            {
+                case 0:
+                    player1Cats[0].SetActive(true);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 1:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(true);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 2:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(true);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 3:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(true);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 4:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(true);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 5:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(true);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 6:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(true);
+                    player1Cats[7].SetActive(false);
+                    break;
+                case 7:
+                    player1Cats[0].SetActive(false);
+                    player1Cats[1].SetActive(false);
+                    player1Cats[2].SetActive(false);
+                    player1Cats[3].SetActive(false);
+                    player1Cats[4].SetActive(false);
+                    player1Cats[5].SetActive(false);
+                    player1Cats[6].SetActive(false);
+                    player1Cats[7].SetActive(true);
+                    break;
+            }
+
+            //Player 2 Cats
+            switch (player2CatNumber)
+            {
+                case 0:
+                    player2Cats[0].SetActive(true);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 1:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(true);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 2:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(true);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 3:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(true);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 4:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(true);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 5:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(true);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 6:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(true);
+                    player2Cats[7].SetActive(false);
+                    break;
+                case 7:
+                    player2Cats[0].SetActive(false);
+                    player2Cats[1].SetActive(false);
+                    player2Cats[2].SetActive(false);
+                    player2Cats[3].SetActive(false);
+                    player2Cats[4].SetActive(false);
+                    player2Cats[5].SetActive(false);
+                    player2Cats[6].SetActive(false);
+                    player2Cats[7].SetActive(true);
+                    break;
+            }
+        }
+
     }
 
     public void P1NextCat()

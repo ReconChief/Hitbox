@@ -10,14 +10,11 @@ public class StopLeft : MonoBehaviour
 
     private Player2Controls player2;
 
-    private void Start()
-    {
-        player1 = GameObject.Find("Player1Cat").GetComponent<Player1Controls>();
-        player2 = GameObject.Find("Player2Cat").GetComponent<Player2Controls>();
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        player1 = GameObject.Find("Player1CatFighter").GetComponent<Player1Controls>();
+        player2 = GameObject.Find("Player2CatFighter").GetComponent<Player2Controls>();
+
         if (collision.CompareTag("Player1Movement"))
         {
             player1.moveLeft = false;

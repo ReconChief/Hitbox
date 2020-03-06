@@ -10,7 +10,7 @@ public class Player1HitBox : MonoBehaviour
     private void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        p1 = GameObject.Find("Player1Cat").GetComponent<Player1Controls>();
+        p1 = GameObject.Find("Player1CatFighter").GetComponent<Player1Controls>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

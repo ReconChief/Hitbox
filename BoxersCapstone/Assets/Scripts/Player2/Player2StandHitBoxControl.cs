@@ -37,7 +37,7 @@ public class Player2StandHitBoxControl : MonoBehaviour
             if (player2.startUpFrames > 4.0 && player2.startUpFrames < 4.2)
             {
                 standLightPunchHitBox.SetActive(true);
-                standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime * 0.01f;
+                standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime;
                 hurtBox.SetActive(false);
             }
 
@@ -61,7 +61,7 @@ public class Player2StandHitBoxControl : MonoBehaviour
             if (player2.startUpFrames > 2.5 && player2.startUpFrames < 2.8)
             {
                 standFiercePunchHitBox.SetActive(true);
-                standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime * 0.01f;
+                standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime;
                 hurtBox.SetActive(false);
             }
 

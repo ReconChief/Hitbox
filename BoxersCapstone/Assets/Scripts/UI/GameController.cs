@@ -150,12 +150,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        player1 = GameObject.Find("Player1Cat").GetComponent<Player1Controls>();
-
+        
         p1ResetStandPositions = player1StandLightHitBox.transform.position;
         p1ResetLowPositions = player1LowLightHitBox.transform.position;
-
-        player2 = GameObject.Find("Player2Cat").GetComponent<Player2Controls>();
 
         p2ResetStandPositions = player2StandLightHitBox.transform.position;
         p2ResetLowPositions = player2LowLightHitBox.transform.position;
@@ -229,6 +226,7 @@ public class GameController : MonoBehaviour
                 //Display Text
                 if (roundTimer >= 2)
                 {
+
                     numberOfRoundText.text = "ROUND " + roundNumber.ToString();
                     if (roundTimer == 2.1)
                     {
@@ -238,6 +236,9 @@ public class GameController : MonoBehaviour
 
                 else if (roundTimer >= 0.5)
                 {
+                    player1 = GameObject.Find("Player1CatFighter").GetComponent<Player1Controls>();
+                    player2 = GameObject.Find("Player2CatFighter").GetComponent<Player2Controls>();
+
                     numberOfRoundText.text = "READY";
                     if (roundTimer == 0.51)
                     {
@@ -255,7 +256,7 @@ public class GameController : MonoBehaviour
                     }
                 }
 
-                timerText.color = new Color(0, 0, 0, 1);
+                timerText.color = new Color(1, 1, 1, 1);
                 timerText.text = timer.ToString("F0");
             }
 
@@ -270,22 +271,22 @@ public class GameController : MonoBehaviour
             #region Timer Color Change
             if (timer >= 18 && timer <= 23)
             {
-                timerText.color = new Color(.2f, 0, 0, 1);
+                timerText.color = new Color(1, .8f, .8f, 1);
             }
 
             else if (timer >= 14 && timer <= 17)
             {
-                timerText.color = new Color(.4f, 0, 0, 1);
+                timerText.color = new Color(1, .6f, .6f, 1);
             }
 
             else if (timer >= 9 && timer <= 13)
             {
-                timerText.color = new Color(.6f, 0, 0, 1);
+                timerText.color = new Color(1, .4f, .4f, 1);
             }
 
             else if (timer >= 5 && timer <= 8)
             {
-                timerText.color = new Color(.8f, 0, 0, 1);
+                timerText.color = new Color(1, .2f, .2f, 1);
             }
 
             else if (timer >= 0 && timer <= 4)

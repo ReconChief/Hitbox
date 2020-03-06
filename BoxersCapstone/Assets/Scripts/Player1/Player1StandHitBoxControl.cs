@@ -20,11 +20,14 @@ public class Player1StandHitBoxControl : MonoBehaviour
 
     void Start()
     {
-        player1 = GetComponentInParent<Player1Controls>();
+        //player1 = GameObject.Find("Player1CatFighter").GetComponent<Player1Controls>();
     }
 
     void Update()
     {
+
+        player1 = GameObject.Find("Player1CatFighter").GetComponent<Player1Controls>();
+
         if (player1.standLightP)
         {
             if (!valueSet)
@@ -37,7 +40,7 @@ public class Player1StandHitBoxControl : MonoBehaviour
             {
                 hurtBox.SetActive(false);
                 standLightPunchHitBox.SetActive(true);
-                standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime * 0.01f;
+                standLightPunchHitBox.transform.position += new Vector3 (0.01f, 0, 0) * Time.deltaTime;
             }
 
             else
@@ -60,7 +63,7 @@ public class Player1StandHitBoxControl : MonoBehaviour
             if (player1.startUpFrames > 2.5 && player1.startUpFrames < 2.8)
             {
                 standFiercePunchHitBox.SetActive(true);
-                standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime * 0.01f;
+                standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime;
                 hurtBox.SetActive(false);
             }
 
