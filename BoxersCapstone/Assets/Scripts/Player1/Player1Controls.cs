@@ -6,7 +6,7 @@ public class Player1Controls : MonoBehaviour
 {
     //Controls
     [Header ("Player Variables")]
-    public float playerSpeed = 3.5f;
+    public float playerSpeed = 5f;
     public float startUpFrames = 5.0f;
     public float standInputTime = 1.0f;
     public float lowInputTime = 1.0f;
@@ -288,7 +288,7 @@ public class Player1Controls : MonoBehaviour
                     Frame0.SetActive(true);
 
                     startUpFrames = 5.0f;
-                    playerSpeed = 3.5f;
+                    playerSpeed = 5f;
                     standInputTime = 1.0f;
                     standLightP = false;
                 }
@@ -374,7 +374,7 @@ public class Player1Controls : MonoBehaviour
                     standFierceFrame6.SetActive(false);
 
                     startUpFrames = 5.0f;
-                    playerSpeed = 3.5f;
+                    playerSpeed = 5f;
                     standInputTime = 1.0f;
                     standFierceP = false;
                 }
@@ -426,7 +426,7 @@ public class Player1Controls : MonoBehaviour
                     Frame0.SetActive(true);
 
                     startUpFrames = 5.0f;
-                    playerSpeed = 3.5f;
+                    playerSpeed = 5f;
                     lowInputTime = 1.0f;
                     lowLightP = false;
                 }
@@ -512,7 +512,7 @@ public class Player1Controls : MonoBehaviour
                     Frame0.SetActive(true);
 
                     startUpFrames = 5.0f;
-                    playerSpeed = 3.5f;
+                    playerSpeed = 5f;
                     lowInputTime = 1.0f;
                     lowFierceP = false;
                 }

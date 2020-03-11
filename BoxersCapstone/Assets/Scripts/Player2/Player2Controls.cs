@@ -6,7 +6,7 @@ public class Player2Controls : MonoBehaviour
 {
     //Controls
     [Header ("Player Variables")]
-    public float playerSpeed = 3.5f;
+    public float playerSpeed = 5f;
     public float startUpFrames = 5.0f;
     public float standInputTime = 1.0f;
     public float lowInputTime = 1.0f;

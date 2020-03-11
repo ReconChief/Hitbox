@@ -32,46 +32,46 @@ public class CatsFlying : MonoBehaviour
 
         else if (lerp.colorIndex == 0 && lerp.time < .9f && !reverse)
         {
-            cats[0].transform.Translate(Vector2.right * Time.deltaTime * 550);
+            cats[0].transform.Translate(Vector2.right * Time.deltaTime * 850);
         }
 
         else if (lerp.colorIndex == 1 && lerp.time < .9f && !reverse)
         {
-            cats[1].transform.Translate(Vector2.left * Time.deltaTime * 550);
+            cats[1].transform.Translate(Vector2.left * Time.deltaTime * 850);
         }
 
         else if (lerp.colorIndex == 2 && lerp.time < .9f && !reverse)
         {
-            cats[2].transform.Translate(Vector2.left * Time.deltaTime * 550);
-            cats[2].transform.Translate(Vector2.down * Time.deltaTime * 300);
+            cats[2].transform.Translate(Vector2.left * Time.deltaTime * 850);
+            cats[2].transform.Translate(Vector2.down * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 3 && lerp.time < .9f && !reverse)
         {
-            cats[3].transform.Translate(Vector2.right * Time.deltaTime * 550);
-            cats[3].transform.Translate(Vector2.down * Time.deltaTime * 300);
+            cats[3].transform.Translate(Vector2.right * Time.deltaTime * 850);
+            cats[3].transform.Translate(Vector2.down * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 4 && lerp.time < .9f && !reverse)
         {
-            cats[4].transform.Translate(Vector2.down * Time.deltaTime * 350);
+            cats[4].transform.Translate(Vector2.down * Time.deltaTime * 550);
         }
 
         else if (lerp.colorIndex == 5 && lerp.time < .9f && !reverse)
         {
-            cats[5].transform.Translate(Vector2.up * Time.deltaTime * 350);
+            cats[5].transform.Translate(Vector2.up * Time.deltaTime * 550);
         }
 
         else if (lerp.colorIndex == 6 && lerp.time < .9f && !reverse)
         {
-            cats[6].transform.Translate(Vector2.left * Time.deltaTime * 550);
-            cats[6].transform.Translate(Vector2.up * Time.deltaTime * 300);
+            cats[6].transform.Translate(Vector2.left * Time.deltaTime * 850);
+            cats[6].transform.Translate(Vector2.up * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 7 && lerp.time < .9f && !reverse)
         {
-            cats[7].transform.Translate(Vector2.right * Time.deltaTime * 550);
-            cats[7].transform.Translate(Vector2.up * Time.deltaTime * 300);
+            cats[7].transform.Translate(Vector2.right * Time.deltaTime * 850);
+            cats[7].transform.Translate(Vector2.up * Time.deltaTime * 600);
             reverseIt = true;
         }
         #endregion
@@ -79,46 +79,46 @@ public class CatsFlying : MonoBehaviour
         #region Cats In Reverse
         if (lerp.colorIndex == 0 && lerp.time < .9f && reverse)
         {
-            cats[0].transform.Translate(Vector2.left * Time.deltaTime * 550);
+            cats[0].transform.Translate(Vector2.left * Time.deltaTime * 850);
         }
 
         else if (lerp.colorIndex == 1 && lerp.time < .9f && reverse)
         {
-            cats[1].transform.Translate(Vector2.right * Time.deltaTime * 550);
+            cats[1].transform.Translate(Vector2.right * Time.deltaTime * 850);
         }
 
         else if (lerp.colorIndex == 2 && lerp.time < .9f && reverse)
         {
-            cats[2].transform.Translate(Vector2.right * Time.deltaTime * 550);
-            cats[2].transform.Translate(Vector2.up * Time.deltaTime * 300);
+            cats[2].transform.Translate(Vector2.right * Time.deltaTime * 850);
+            cats[2].transform.Translate(Vector2.up * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 3 && lerp.time < .9f && reverse)
         {
-            cats[3].transform.Translate(Vector2.left * Time.deltaTime * 550);
-            cats[3].transform.Translate(Vector2.up * Time.deltaTime * 300);
+            cats[3].transform.Translate(Vector2.left * Time.deltaTime * 850);
+            cats[3].transform.Translate(Vector2.up * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 4 && lerp.time < .9f && reverse)
         {
-            cats[4].transform.Translate(Vector2.up * Time.deltaTime * 350);
+            cats[4].transform.Translate(Vector2.up * Time.deltaTime * 550);
         }
 
         else if (lerp.colorIndex == 5 && lerp.time < .9f && reverse)
         {
-            cats[5].transform.Translate(Vector2.down * Time.deltaTime * 350);
+            cats[5].transform.Translate(Vector2.down * Time.deltaTime * 550);
         }
 
         else if (lerp.colorIndex == 6 && lerp.time < .9f && reverse)
         {
-            cats[6].transform.Translate(Vector2.right * Time.deltaTime * 550);
-            cats[6].transform.Translate(Vector2.down * Time.deltaTime * 300);
+            cats[6].transform.Translate(Vector2.right * Time.deltaTime * 850);
+            cats[6].transform.Translate(Vector2.down * Time.deltaTime * 600);
         }
 
         else if (lerp.colorIndex == 7 && lerp.time < .9f && reverse)
         {
-            cats[7].transform.Translate(Vector2.left * Time.deltaTime * 550);
-            cats[7].transform.Translate(Vector2.down * Time.deltaTime * 300);
+            cats[7].transform.Translate(Vector2.left * Time.deltaTime * 850);
+            cats[7].transform.Translate(Vector2.down * Time.deltaTime * 600);
             reverseIt = false;
         }
         #endregion

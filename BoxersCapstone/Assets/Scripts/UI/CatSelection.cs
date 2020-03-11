@@ -19,6 +19,8 @@ public class CatSelection : MonoBehaviour
     private bool p1Ready = false;
     private bool p2Ready = false;
 
+    private bool check = false;
+
     void Start()
     {
         if (string.Equals(SceneManager.GetActiveScene().name, "Game") || string.Equals(SceneManager.GetActiveScene().name, "Player1W")
@@ -284,51 +286,73 @@ public class CatSelection : MonoBehaviour
                 //Return to Stage Select or Cancel
                 if (Input.GetKeyUp(KeyCode.S) && !p1Ready)
                 {
+                    check = false;
                     titleScreen.returnToStageSelect();
                 }
 
                 else if (Input.GetKeyUp(KeyCode.S) && p1Ready)
                 {
                     p1Ready = false;
-                    player1ReadyOrNot[0].SetActive(true);
-                    player1ReadyOrNot[1].SetActive(false);
                 }
 
                 if (Input.GetKeyUp(KeyCode.Joystick1Button2) && !p1Ready) //Player 1 X Button
                 {
+                    check = false;
                     titleScreen.returnToStageSelect();
                 }
 
                 else if (Input.GetKeyUp(KeyCode.Joystick1Button2) && p1Ready) //Player 1 X Button
                 {
                     p1Ready = false;
-                    player1ReadyOrNot[0].SetActive(true);
-                    player1ReadyOrNot[1].SetActive(false);
                 }
 
                 if (Input.GetKeyUp(KeyCode.DownArrow) && !p2Ready)
                 {
+                    check = false;
                     titleScreen.returnToStageSelect();
                 }
 
                 else if (Input.GetKeyUp(KeyCode.DownArrow) && p2Ready)
                 {
                     p2Ready = false;
-                    player2ReadyOrNot[0].SetActive(true);
-                    player2ReadyOrNot[1].SetActive(false);
                 }
 
                 if (Input.GetKeyUp(KeyCode.Joystick2Button2) && !p2Ready) //Player 2 X Button
                 {
+                    check = false;
                     titleScreen.returnToStageSelect();
                 }
 
-                else if (Input.GetKeyUp(KeyCode.Joystick2Button2) && p2Ready)
+                else if (Input.GetKeyUp(KeyCode.Joystick2Button2) && p2Ready) //Player 2 X Button
                 {
                     p2Ready = false;
+                }
+
+                #region Check Marks
+                if (!p1Ready) //If P1 is not ready, X
+                {
+                    player1ReadyOrNot[0].SetActive(true);
+                    player1ReadyOrNot[1].SetActive(false);
+                }
+
+                else //If P1 is ready, check mark
+                {
+                    player1ReadyOrNot[0].SetActive(false);
+                    player1ReadyOrNot[1].SetActive(true);
+                }
+
+                if (!p2Ready) // If P2 is not ready, X
+                {
                     player2ReadyOrNot[0].SetActive(true);
                     player2ReadyOrNot[1].SetActive(false);
                 }
+
+                else //If P2 is ready, check mark
+                {
+                    player2ReadyOrNot[0].SetActive(false);
+                    player2ReadyOrNot[1].SetActive(true);
+                }
+                #endregion
 
                 if (p1Ready && p2Ready)
                 {
@@ -686,10 +710,30 @@ public class CatSelection : MonoBehaviour
             }
         }
 
+        if (!check && Input.GetJoystickNames().Length > 0)
+        {
+            if (p1Ready)
+            {
+                check = true;
+                p1Ready = false;
+            }
+
+            else if (Input.GetJoystickNames().Length > 1)
+            {
+                if (p1Ready || p2Ready)
+                {
+                    check = true;
+                    p1Ready = false;
+                    p2Ready = false;
+                }
+            }
+        }
     }
 
     public void P1NextCat()
     {
+        p1Ready = false;
+
         player1CatNumber++;
 
         if (player1CatNumber > 7)
@@ -700,6 +744,8 @@ public class CatSelection : MonoBehaviour
 
     public void P1PreviousCat()
     {
+        p1Ready = false;
+
         player1CatNumber--;
 
         if (player1CatNumber < 0)
@@ -710,6 +756,8 @@ public class CatSelection : MonoBehaviour
 
     public void P2NextCat()
     {
+        p2Ready = false;
+
         player2CatNumber++;
 
         if (player2CatNumber > 7)
@@ -720,6 +768,8 @@ public class CatSelection : MonoBehaviour
 
     public void P2PreviousCat()
     {
+        p2Ready = false;
+
         player2CatNumber--;
 
         if (player2CatNumber < 0)
