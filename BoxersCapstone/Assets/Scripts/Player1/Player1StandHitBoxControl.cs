@@ -36,7 +36,7 @@ public class Player1StandHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player1.startUpFrames > 4.0 && player1.startUpFrames < 4.2)
+            if (player1.startUpFrames > 4.4 && player1.startUpFrames < 4.5)
             {
                 hurtBox.SetActive(false);
                 standLightPunchHitBox.SetActive(true);
@@ -60,7 +60,7 @@ public class Player1StandHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player1.startUpFrames > 2.5 && player1.startUpFrames < 2.8)
+            if (player1.startUpFrames > 3.3 && player1.startUpFrames < 3.7)
             {
                 standFiercePunchHitBox.SetActive(true);
                 standFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime;

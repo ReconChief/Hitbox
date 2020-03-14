@@ -159,7 +159,7 @@ public class GameController : MonoBehaviour
 
         p1ResetBoundaries = p1Boundaries.transform.position;
         p2ResetBoundaries = p2Boundaries.transform.position;
-
+       
         stageSelected = this.GetComponent<StageSelection>();
         catSelected = this.GetComponent<CatSelection>();
 

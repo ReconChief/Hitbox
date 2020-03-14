@@ -36,7 +36,7 @@ public class Player1LowHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player1.startUpFrames > 4.0 && player1.startUpFrames < 4.2)
+            if (player1.startUpFrames > 4.4 && player1.startUpFrames < 4.5)
             {
                 lowLightPunchHitBox.SetActive(true);
                 lowLightPunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime;
@@ -60,7 +60,7 @@ public class Player1LowHitBoxControl : MonoBehaviour
                 valueSet = true;
             }
 
-            if (player1.startUpFrames > 2.5 && player1.startUpFrames < 2.8)
+            if (player1.startUpFrames > 3.3 && player1.startUpFrames < 3.7)
             {
                 lowFiercePunchHitBox.SetActive(true);
                 lowFiercePunchHitBox.transform.position += new Vector3(0.01f, 0, 0) * Time.deltaTime;
