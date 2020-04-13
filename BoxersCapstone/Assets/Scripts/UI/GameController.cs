@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
 
     public bool paused = false;
 
+    #region Pause Screen
     [Header("Screen")]
     public GameObject pauseScreen;
     public GameObject controlScreen;
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour
     public GameObject controlsButton;
     public GameObject returnKeyButton;
     public GameObject returnControllerButton;
+    #endregion
 
     [Header("Timer Variables")]
     //Timers
@@ -118,14 +120,19 @@ public class GameController : MonoBehaviour
     public AudioSource hit;
     public AudioSource p1HappyCat;
     public AudioSource p2HappyCat;
-    
+
+    #region BGM
     [Header("Soundtracks")]
     public AudioSource parkTheme;
     public AudioSource dojoTheme;
     public AudioSource catClubTheme;
+    public AudioSource soccerFieldTheme;
     public AudioSource intenseParkTheme;
     public AudioSource intenseDojoTheme;
     public AudioSource intenseCatClubTheme;
+    public AudioSource intenseSoccerFieldTheme;
+    #endregion
+
 
     [Header("HitStun Frames")]
     public GameObject p1Stand;
@@ -134,6 +141,18 @@ public class GameController : MonoBehaviour
     public GameObject p1hitStunFrame2;
     public GameObject p2hitStunFrame1;
     public GameObject p2hitStunFrame2;
+
+    #region Claw Effects
+    public GameObject[] p1StandShortClawEffects = new GameObject[8];
+    public GameObject[] p1StandLongClawEffects = new GameObject[8];
+    public GameObject[] p1LowShortClawEffects = new GameObject[8];
+    public GameObject[] p1LowLongClawEffects = new GameObject[8];
+
+    public GameObject[] p2StandShortClawEffects = new GameObject[8];
+    public GameObject[] p2StandLongClawEffects = new GameObject[8];
+    public GameObject[] p2LowShortClawEffects = new GameObject[8];
+    public GameObject[] p2LowLongClawEffects = new GameObject[8];
+    #endregion
 
     void Awake()
     {
@@ -149,8 +168,7 @@ public class GameController : MonoBehaviour
     }
 
     void Start()
-    {
-        
+    {        
         p1ResetStandPositions = player1StandLightHitBox.transform.position;
         p1ResetLowPositions = player1LowLightHitBox.transform.position;
 
@@ -400,7 +418,7 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene("Player2W");
             }
 
-
+            #region SongPlaying
             if (stageSelected.stages[0].activeSelf)
             {
                 if (timer > 15 && !parkTheme.isPlaying)
@@ -443,6 +461,21 @@ public class GameController : MonoBehaviour
                 }
             }
 
+            if (stageSelected.stages[3].activeSelf)
+            {
+                if (timer > 15 && !soccerFieldTheme.isPlaying)
+                {
+                    soccerFieldTheme.Play();
+                }
+
+                else if (timer < 15 && !intenseSoccerFieldTheme.isPlaying)
+                {
+                    soccerFieldTheme.Stop();
+                    intenseSoccerFieldTheme.Play();
+                }
+            }
+            #endregion
+
             if (Input.GetButtonDown("StartButton"))
             {
                 paused = true;
@@ -470,7 +503,194 @@ public class GameController : MonoBehaviour
     }
 
     public void Player1WinsRound()
-    {
+    {        
+        #region CatClawEffect
+        if (catSelected.player1Cats[0])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[0].SetActive(true);
+            }
+            
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[0].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[0].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[0].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[1])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[1].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[1].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[1].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[1].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[2])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[2].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[2].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[2].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[2].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[3])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[3].SetActive(true);
+            }
+
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[3].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[3].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[3].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[4])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[4].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[4].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[4].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[4].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[5])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[5].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[5].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[5].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[5].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[6])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[6].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[6].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[6].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[6].SetActive(true);
+            }
+        }
+
+        if (catSelected.player1Cats[7])
+        {
+            if (player1.startUpFrames > 4.3f && player1.standLightP)
+            {
+                p1StandShortClawEffects[7].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.standFierceP)
+            {
+                p1StandLongClawEffects[7].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 4.3f && player1.lowLightP)
+            {
+                p1LowShortClawEffects[7].SetActive(true);
+            }
+
+            else if (player1.startUpFrames > 3.2f && player1.lowFierceP)
+            {
+                p1LowLongClawEffects[7].SetActive(true);
+            }
+        }
+        #endregion
+
         winnerText.SetActive(true);
 
         winner.text = "PLAYER 1 WINS ";
@@ -488,6 +708,193 @@ public class GameController : MonoBehaviour
 
     public void Player2WinsRound()
     {
+        #region CatClawEffect
+        if (catSelected.player2Cats[0])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[0].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[0].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[0].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[0].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[1])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[1].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[1].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[1].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[1].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[2])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[2].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[2].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[2].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[2].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[3])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[3].SetActive(true);
+            }
+
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[3].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[3].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[3].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[4])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[4].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[4].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[4].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[4].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[5])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[5].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[5].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[5].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[5].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[6])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[6].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[6].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[6].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[6].SetActive(true);
+            }
+        }
+
+        if (catSelected.player2Cats[7])
+        {
+            if (player2.startUpFrames > 4.3f && player2.standLightP)
+            {
+                p2StandShortClawEffects[7].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.standFierceP)
+            {
+                p2StandLongClawEffects[7].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 4.3f && player2.lowLightP)
+            {
+                p2LowShortClawEffects[7].SetActive(true);
+            }
+
+            else if (player2.startUpFrames > 3.2f && player2.lowFierceP)
+            {
+                p2LowLongClawEffects[7].SetActive(true);
+            }
+        }
+        #endregion
+
         winnerText.SetActive(true);
 
         winner.text = "PLAYER 2 WINS ";

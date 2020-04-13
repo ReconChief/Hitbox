@@ -25,6 +25,8 @@ public class LerpColor : MonoBehaviour
         {
             time = 0f;
 
+            lerpTime = .7f;
+
             colorIndex++;
 
             colorIndex = (colorIndex >= differentColors.Length) ? 0 : colorIndex;

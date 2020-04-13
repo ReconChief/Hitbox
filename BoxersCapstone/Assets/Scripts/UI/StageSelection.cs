@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StageSelection : MonoBehaviour
 {
-    public GameObject[] stages = new GameObject[3];
+    public GameObject[] stages = new GameObject[4];
 
     private TitleScreen titleScreen;
 
@@ -29,16 +29,25 @@ public class StageSelection : MonoBehaviour
                 stages[0].SetActive(true);
                 stages[1].SetActive(false);
                 stages[2].SetActive(false);
+                stages[3].SetActive(false);
                 break;
             case 1:
                 stages[0].SetActive(false);
                 stages[1].SetActive(true);
                 stages[2].SetActive(false);
+                stages[3].SetActive(false);
                 break;
             case 2:
                 stages[0].SetActive(false);
                 stages[1].SetActive(false);
                 stages[2].SetActive(true);
+                stages[3].SetActive(false);
+                break;
+            case 3:
+                stages[0].SetActive(false);
+                stages[1].SetActive(false);
+                stages[2].SetActive(false);
+                stages[3].SetActive(true);
                 break;
         }
     }
@@ -47,7 +56,7 @@ public class StageSelection : MonoBehaviour
     {
         currentNumber++;
 
-        if (currentNumber > 2)
+        if (currentNumber > 3)
         {
             currentNumber = 0;
         }
@@ -59,7 +68,7 @@ public class StageSelection : MonoBehaviour
 
         if (currentNumber < 0)
         {
-            currentNumber = 2;
+            currentNumber = stages.Length - 1;
         }
     }
 
