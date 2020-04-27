@@ -133,15 +133,15 @@ public class GameController : MonoBehaviour
     public AudioSource intenseSoccerFieldTheme;
     #endregion
 
-
     [Header("HitStun Frames")]
-    public GameObject p1Stand;
-    public GameObject p2Stand;
-    public GameObject p1hitStunFrame1;
-    public GameObject p1hitStunFrame2;
-    public GameObject p2hitStunFrame1;
-    public GameObject p2hitStunFrame2;
+    public GameObject[] p1StandFrame = new GameObject[8];
+    public GameObject[] p1FirstStunFrame = new GameObject[8];
+    public GameObject[] p1SecondStunFrame = new GameObject[8];
+    public GameObject[] p2StandFrame = new GameObject[8];
+    public GameObject[] p2FirstStunFrame = new GameObject[8];
+    public GameObject[] p2SecondStunFrame = new GameObject[8];
 
+    [Header("Claw Effects")]
     #region Claw Effects
     public GameObject[] p1StandShortClawEffects = new GameObject[8];
     public GameObject[] p1StandLongClawEffects = new GameObject[8];
@@ -192,46 +192,376 @@ public class GameController : MonoBehaviour
             {
                 if (p1Win)
                 {
-                    p2Stand.SetActive(false);
-
-                    if (endTimer > 4)
+                    if (catSelected.player2Cats[0].activeSelf)
                     {
-                        p2hitStunFrame1.SetActive(true);
+                        p2StandFrame[0].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[0].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[0].SetActive(false);
+                            p2SecondStunFrame[0].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    else if (endTimer > 2)
+                    if (catSelected.player2Cats[1].activeSelf)
                     {
-                        p2hitStunFrame2.SetActive(true);
+                        p2StandFrame[1].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[1].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[1].SetActive(false);
+                            p2SecondStunFrame[1].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    else if (endTimer <= 0)
+                    if (catSelected.player2Cats[2].activeSelf)
                     {
-                        SceneManager.LoadScene("Game");
+                        p2StandFrame[2].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[2].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[2].SetActive(false);
+                            p2SecondStunFrame[2].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    endTimer -= Time.deltaTime;
+                    if (catSelected.player2Cats[3].activeSelf)
+                    {
+                        p2StandFrame[3].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[3].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[3].SetActive(false);
+                            p2SecondStunFrame[3].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player2Cats[4].activeSelf)
+                    {
+                        p2StandFrame[4].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[4].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[4].SetActive(false);
+                            p2SecondStunFrame[4].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player2Cats[5].activeSelf)
+                    {
+                        p2StandFrame[5].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[5].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[5].SetActive(false);
+                            p2SecondStunFrame[5].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player2Cats[6].activeSelf)
+                    {
+                        p2StandFrame[6].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[6].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[6].SetActive(false);
+                            p2SecondStunFrame[6].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player2Cats[7].activeSelf)
+                    {
+                        p2StandFrame[7].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p2FirstStunFrame[7].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p2FirstStunFrame[7].SetActive(false);
+                            p2SecondStunFrame[7].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
                 }
 
                 else if (p2Win)
                 {
-                    p1Stand.SetActive(false);
-
-                    if (endTimer > 4)
+                    if (catSelected.player1Cats[0].activeSelf)
                     {
-                        p1hitStunFrame1.SetActive(true);
+                        p1StandFrame[0].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[0].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[0].SetActive(false);
+                            p1SecondStunFrame[0].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    else if (endTimer > 2)
+                    if (catSelected.player1Cats[1].activeSelf)
                     {
-                        p1hitStunFrame2.SetActive(true);
+                        p1StandFrame[1].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[1].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[1].SetActive(false);
+                            p1SecondStunFrame[1].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    else if (endTimer <= 0)
+                    if (catSelected.player1Cats[2].activeSelf)
                     {
-                        SceneManager.LoadScene("Game");
+                        p1StandFrame[2].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[2].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[2].SetActive(false);
+                            p1SecondStunFrame[2].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
                     }
 
-                    endTimer -= Time.deltaTime;
+                    if (catSelected.player1Cats[3].activeSelf)
+                    {
+                        p1StandFrame[3].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[3].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[3].SetActive(false);
+                            p1SecondStunFrame[3].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player1Cats[4].activeSelf)
+                    {
+                        p1StandFrame[4].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[4].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[4].SetActive(false);
+                            p1SecondStunFrame[4].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player1Cats[5].activeSelf)
+                    {
+                        p1StandFrame[5].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[5].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[5].SetActive(false);
+                            p1SecondStunFrame[5].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player1Cats[6].activeSelf)
+                    {
+                        p1StandFrame[6].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[6].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[6].SetActive(false);
+                            p1SecondStunFrame[6].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
+
+                    if (catSelected.player1Cats[7].activeSelf)
+                    {
+                        p1StandFrame[7].SetActive(false);
+
+                        if (endTimer > 4)
+                        {
+                            p1FirstStunFrame[7].SetActive(true);
+                        }
+
+                        else if (endTimer > 2)
+                        {
+                            p1FirstStunFrame[7].SetActive(false);
+                            p1SecondStunFrame[7].SetActive(true);
+                        }
+
+                        else if (endTimer <= 0)
+                        {
+                            SceneManager.LoadScene("Game");
+                        }
+
+                        endTimer -= Time.deltaTime;
+                    }
                 }
             }
 
