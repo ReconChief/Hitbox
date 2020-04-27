@@ -806,10 +806,10 @@ public class GameController : MonoBehaviour
             }
             #endregion
 
-            if (Input.GetButtonDown("StartButton"))
+            if (Input.GetButtonDown("StartButton") || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
             {
                 paused = true;
-                Time.timeScale = 0f;
+                Time.timeScale = 0f;                
             }
         }
 
@@ -819,7 +819,7 @@ public class GameController : MonoBehaviour
             {
                 pauseScreen.SetActive(true);
 
-                if (Input.GetButtonDown("StartButton"))
+                if (Input.GetButtonDown("StartButton") || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
                 {
                     Time.timeScale = 1f;
                     pauseScreen.SetActive(false);
